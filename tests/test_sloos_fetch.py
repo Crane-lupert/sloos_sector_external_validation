@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from sloos_sector_cross_section.sloos_fetch import (  # noqa: E402
+from sloos_sector_external_validation.sloos_fetch import (  # noqa: E402
     DEFAULT_SERIES,
     PRIMARY_SERIES,
     fetch_series,

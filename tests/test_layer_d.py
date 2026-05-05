@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.layer_d import (
+from sloos_sector_external_validation.layer_d import (
     DEFAULT_HORIZON_LABEL,
     DELTA_SHARPE_FLOOR,
     HORIZON_TD,
@@ -116,7 +116,7 @@ def test_annualize_per_event_zero_span():
 # Integration test on Day 8-9 snapshot
 def test_real_layer_d_passes_phase1_floor():
     """Phase 1 §7 lock: Δ Sharpe ≥ 0.40."""
-    from sloos_sector_cross_section.layer_d import run_layer_d
+    from sloos_sector_external_validation.layer_d import run_layer_d
 
     cache = Path("data/cache")
     panel_files = sorted(cache.glob("sector_panel_*.parquet"))

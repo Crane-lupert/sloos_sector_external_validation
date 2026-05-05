@@ -54,7 +54,7 @@ GICS_NAME: dict[int, str] = {
 
 def _download_csv(url: str, timeout: int = 30) -> pd.DataFrame:
     """Download iShares holdings CSV. The response has a 9-line preamble before the table header."""
-    headers = {"User-Agent": "Mozilla/5.0 sloos_sector_cross_section discovery research"}
+    headers = {"User-Agent": "Mozilla/5.0 sloos_sector_external_validation discovery research"}
     r = requests.get(url, headers=headers, timeout=timeout)
     r.raise_for_status()
     text = r.content.decode("utf-8-sig", errors="replace")

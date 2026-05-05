@@ -1,4 +1,4 @@
-"""Streamlit MVP dashboard for S1 sloos_sector_cross_section results.
+"""Streamlit MVP dashboard for S1 sloos_sector_external_validation results.
 
 Run: streamlit run dashboard/app.py
 
@@ -87,7 +87,7 @@ def main():
     st.dataframe(sig.round(3), use_container_width=True)
 
     st.header("4. Strategy Returns per Event")
-    from sloos_sector_cross_section.layer_d import compute_strategy_returns, select_long_short_sectors
+    from sloos_sector_external_validation.layer_d import compute_strategy_returns, select_long_short_sectors
 
     long_sec, short_sec = select_long_short_sectors(layer_a, horizon="6m")
     strat = compute_strategy_returns(panel, long_sec, short_sec, horizon="6m")

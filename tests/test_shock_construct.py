@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.shock_construct import (
+from sloos_sector_external_validation.shock_construct import (
     AR_ORDER,
     SVB_COHORT_START,
     Z_THRESHOLD,

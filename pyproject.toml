@@ -1,7 +1,7 @@
 [project]
-name = "sloos-sector-cross-section"
+name = "sloos-sector-external-validation"
 version = "0.0.1"
-description = "S1 — Fed SLOOS C&I lending standard tightening shock event × 11 GICS sector cross-section forward CAR. QR Scout discovery alpha-research (Macro/Credit pod first)."
+description = "S3 — Path B international replication of S1 SLOOS sectoral decomposition. UK (BoE Credit Conditions Survey) + Eurozone (ECB Bank Lending Survey) × STOXX 600 cross-country external validation. QR Scout discovery alpha-research (Macro/Credit international extension, fork from S1 sloos_sector_cross_section close commit 4ce5c49)."
 requires-python = ">=3.11"
 dependencies = [
   "fredapi>=0.5",
@@ -16,6 +16,7 @@ dependencies = [
   "beautifulsoup4>=4.12",
   "tabula-py>=2.9",
   "httpx>=0.28.1",
+  "openpyxl>=3.1.5",
 ]
 
 [project.optional-dependencies]
@@ -34,7 +35,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/sloos_sector_cross_section"]
+packages = ["src/sloos_sector_external_validation"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

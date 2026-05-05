@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.ecsi_construct import (
+from sloos_sector_external_validation.ecsi_construct import (
     MACRO_SERIES,
     fit_ecsi_proxy,
 )

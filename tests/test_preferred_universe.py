@@ -11,7 +11,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.preferred_universe import (
+from sloos_sector_external_validation.preferred_universe import (
     GICS_NAME,
     union_r3000,
     universe_summary,

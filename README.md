@@ -1,113 +1,97 @@
-# sloos_sector_cross_section (S1)
+# sloos_sector_external_validation (S3)
 
-Fed Senior Loan Officer Opinion Survey (SLOOS) C&I lending standard tightening shock event (quarterly release, AR(1)-innovation `|z_innov|>1.0σ`) × 11 GICS sector cross-section forward CAR cyclical heterogeneity event-study.
+🚀 **LAUNCHING — Path B** (fork from S1 `sloos_sector_cross_section` close commit `4ce5c49`, 2026-05-06)
 
-**Status**: ✅ **LAYER A LOCKED — event-study class** (Phase 4 closed 2026-05-05). **한국어 distill**: [analysis/README_KR.md](analysis/README_KR.md).
-**Type**: discovery-form alpha-research, **portfolio second LAYER A LOCKED instance** (after F6), **first event-study sub-class member** (Gate N thin-event-study class first instance), **Macro/Credit pod first LOCKED**.
-**Daemon**: PURE daemon-free (Gate F ✓) — FRED API + WRDS courier (read-only) + Ken French CSV + iShares CSV.
+> Cross-country external validation — UK (BoE Credit Conditions Survey) + Eurozone (ECB Bank Lending Survey) replication of S1's SLOOS sectoral decomposition. Tier 1 candidate (J Mon Econ / RFS direct submission realistic if 3 of 3 cross-country Spearman pairs ≥ 0.5).
 
-## Layer A — event-study class headline metrics
+## What this repo does
 
-| Trigger | Threshold | Final value | Verdict |
-|---|---|---|---|
-| (N-1) Cell-level Bonferroni-K=33 (PRIMARY) | ≥ 5 cells significant | **15 / 33** (3× floor) | ✅ |
-| (N-2) F-test sector heterogeneity 6m (PRIMARY) | p < 0.05 in ≥1 horizon | **p = 1.8e-56** at 6m (3/3 horizons) | ✅ overwhelming |
-| (N-3) Alternative event def DRTSCIS Spearman (PRIMARY) | ≥ 0.5 in ≥1 horizon | **0.827 / 0.864 / 0.891** at 1m/3m/6m, sign 10/11 | ✅ all 3 horizons |
-| (N-S1) Bootstrap share-pass-Bonferroni (refined supplementary) | ≥ 5 cells share ≥ 0.70 | **13 / 33** | ✅ refined PASS |
-| (N-S2) VIX-regime stratification (refined supplementary) | sign agree ≥ 7/11 strict, or boundary refinement | 6/11 sign agree at 6m | boundary characterization |
-| (N-S3) Layer D Δ Sharpe (illustrative supplementary, **not binding**) | n_event<50 ⇒ no binding floor | **+0.866 (p=0.182 marginal)** at 6m | reported but not gating |
-| (N-S4) Walk-forward (illustrative supplementary, **not binding**) | n_event<50 ⇒ method-task mismatch | 4/5 PASS | reported but not gating |
+This repo extends S1 ([Crane-lupert/sloos_sector_cross_section](https://github.com/Crane-lupert/sloos_sector_cross_section), LAYER A LOCKED — event-study class 2026-05-05) by replicating the SLOOS-equivalent shock × cross-section equity sector framework on:
 
-**Headline 6m sector pattern (v3 CRSP-time-varying honest panel)**: Cons Disc +9.59 / Healthcare -7.15 / Utilities -5.64 / Energy +5.20 / Industrials +4.37 / Materials +3.51 (cyclical-positive / defensive-negative monotone, thesis-consistent across all horizons).
+- **United Kingdom**: Bank of England Credit Conditions Survey (CCS) C&I tightening, 2007-Q1+ (~76 quarters, ~14-18 events expected) × **STOXX 600 GBR-filter** (116 currently-active firms — FTSE 350 vendor unavailable in Compustat Global, Bonferroni power 1.4× loss caveat documented in §limitations)
+- **Eurozone**: ECB Bank Lending Survey (BLS) C&I tightening, 2003-Q1+ (~88 quarters, ~17-20 events expected) × **STOXX 600 full** (~421+ active firms, eurozone country list)
+- **US reference**: S1 v3 honest panel (frozen at S1 commit `4ce5c49`, 15/33 cells significant)
 
-**Layer D illustrative supplementary**: Δ Sharpe +0.866 (p=0.18 marginal; not binding under thin-event-study class — Gate N rule §4.4 mathematical impossibility lock against in-sample/OOS split).
+The **cross-country external validation** is the primary novelty over:
+- **Wilson 2023 FRL** ("Profitable timing of the stock market with the senior loan officer survey") — first aggregate SLOOS-equity timing finding (S&P 500 only), no sector decomposition, US-only
+- **Hafemann-Tillmann 2021 SSRN 4000366** ("Lending Standards and the Business Cycle: Evidence from Loan Survey Releases") — first SLOOS release-day shock identification via Bayesian VAR, US macro VAR aggregate, no equity sector cross-section
+- **Bidder-Krane-Park 2026.02 FEDS Note** ("Measuring Shocks to Banks' Expectations for Lending Standards Using SLOOS") — first AR-residual expectation methodology, US macro VAR aggregate, no sector decomposition
+- **S1 sloos_sector_cross_section** (2026-05-05 close) — first US SLOOS sectoral decomposition under Bonferroni framework, single-country
 
-**Paper draft**: [analysis/paper_v1.md](analysis/paper_v1.md) (event-study reproducibility paper).
-**Dashboard**: `streamlit run dashboard/app.py` (MVP).
+S3 contributes the **first cross-country external validation** of the SLOOS-sector phenomenon — does the sectoral pattern hold in UK and Eurozone, or is it a US-specific artifact?
 
----
+## Status
+
+🚀 **LAUNCHING** (Phase 0 Day 1 critical: BoE CCS + ECB BLS series start year verification — if ≥2015 per country, ABANDONED).
+
+Reference validation: `D:/vscode/meta-harness/audits/2026-05-06-S3-international-validation-reference-validation.md`.
 
 ## Hypothesis
 
-amendment 의 quarterly SLOOS C&I lending-standard tightening shock event (AR(1)-innovation > 1σ) → 11 GICS sector forward CAR cross-section heterogeneity. Cyclical (Industrials / Cons Disc / Materials / Energy / Financials) post-shock recovery long, defensive (Healthcare / Utilities) selloff short.
+BoE CCS / ECB BLS C&I-equivalent AR(1) residual shock event (`|z_innov| > 1.0σ`) → forward {1m, 3m, 6m} 11-GICS sector cross-section CAR cyclical heterogeneity (S1 와 same direction).
 
-**Contribution**:
-- BKP 2026.02 E-CSI methodology 의 *equity sector forward* extension (BKP 본인은 lending-standard prediction 자체에 한정)
-- Lucca-Moench 2015 / Savor-Wilson 2014 / Bidder-Krane-Park 2026.02 / Bassett 2014 / Ferreira 2024 prior literature 가 같은 분야 cell-level event-study 표준 적용 — S1 은 이 5 paper line 의 **SLOOS-shock × equity sector** 신규 응용
-- 4 sister repo lift target (time-varying CCM link via dsenames.ncusip — `factor_zoo_decay_audit` / `sec_comment_letter_alpha` / `eight_k_non_reliance_llm` / `climate_transition_llm`)
+**Cross-country PRIMARY (S3 extension)**:
+- (N-S3-A) UK ↔ US (S1) 6m sector Spearman ≥ 0.5
+- (N-S3-B) Eurozone ↔ US (S1) 6m sector Spearman ≥ 0.5
+- (N-S3-C) UK ↔ Eurozone 6m sector Spearman ≥ 0.5
 
----
+## Outcome class (Bayesian prior)
 
-## Three-version bias trail (key methodological contribution)
+| Outcome | Probability |
+|---|---:|
+| **A+ external validation (portfolio 3rd LAYER A LOCKED, J Mon Econ candidate)** | **~20%** |
+| A 2-of-3 country (B+ Layer A LOCKED — international class) | ~25% |
+| B+ partial | ~25% |
+| frozen-two-layer (Path B sub-mode) | ~20% |
+| ABANDONED (data integrity / floor 미달) | ~10% |
 
-| Version | Survivor bias | Lookahead-univ bias | 6m Layer D α-Sharpe (illustrative) | Layer A cells |
-|---|---|---|---|---|
-| v1 (Compustat sec_dprc) | YES | YES | +1.112 (p=0.080) | 18/33 |
-| v2 (CRSP `dsf` + static CUSIP8) | NO | YES | +3.357 (p<0.001) — apparent strengthening, partly artifact | 22/33 |
-| **v3 (CRSP `dsf` + time-varying via `dsenames.ncusip`)** | **NO** | **NO** | **+0.866 (p=0.182 marginal)** | **15/33** |
+## Methodology
 
-v2 → v3 panel size 288K → 135K rows (1.91× reduction) quantifies lookahead-bias inflation factor. The v3 honest-corrected universe is the binding panel for all PRIMARY tests.
+90% framework lifted from S1: cell-level Welch t + Bonferroni-K=33 critical t≈3.17 + F-test sector heterogeneity + alternative event def Spearman + Bootstrap CI + 6-component baseline (FF5+Mom+IVOL+SRF+E-CSI US-anchored + 6th AR-residual UK CCS / Eurozone BLS shocks).
 
----
+**Per-country PASS floors**:
+- UK: ≥4 cells (Bonferroni power 1.4× loss adjusted, S1 floor 5 ÷ 1.4)
+- Eurozone: ≥5 cells (full power, S1 floor 동일)
+- US: S1 reference 15/33 (frozen)
 
-## Data sources
+5 new modules contribute the cross-country validation: `boe_ccs_fetch.py` / `ecb_bls_fetch.py` / `stoxx600_universe.py` / `comp_global_panel.py` / `cross_country_validation.py`.
 
-- **SLOOS primary**: FRED `DRTSCILM` (1990-Q2 → 2026-Q2, 145 quarters)
-- **SLOOS robust** (alternative event def): FRED `DRTSCIS` (small-firm SLOOS C&I tightening)
-- **Equity returns (v3 panel)**: WRDS courier `crsp_a_stock.dsf` (107M rows, 1925-2024, delisting return native via `ret`)
-- **CRSP↔Compustat link**: `dsenames.ncusip` (시간-가변 CUSIP) + `comp_na_daily_all.names.cusip` SUBSTR(8) join — workaround for USAGE-blocked `crsp_a_ccm.ccmxpf_lnkhist` (95.5% R3000 coverage, 0 ambiguity)
-- **GICS mapping**: `comp_na_daily_all.company.gsector` (11 sectors)
-- **R3000 universe**: iShares IWB + IWM holdings public CSV
-- **FF5 + Mom**: Ken French data library public CSV
-- **IVOL / SRF / E-CSI**: 자체 계산 (Ang et al. 2006 macro proxy / Ferreira 2024 / Bidder-Krane-Park 2026.02)
-- **Macro covariates** (E-CSI proxy): FRED UNRATE / T10Y3M / GDPC1 / VIXCLS
+## Data
 
----
+- **BoE statistical interactive database** (CCS C&I net % tightening, public download)
+- **ECB SDW** (BLS C&I net % tightening, public download)
+- **WRDS courier** (`comp_global_daily` Tier A small + B medium 7 tables dumped 2026-05-05 + g_secd filtered fastlane STOXX 600 universe × 2003-2024 dumped 2026-05-06, 251 MB compressed)
+- **Ken French data library** (FF5 + Mom US, US-anchored baseline, paper limitation)
+- **S1 v3 reference panel** (`crsp_sector_panel_DRTSCILM_AR1_TIMEVAR_v2_2026-05-05.parquet`, frozen at S1 commit `4ce5c49`)
 
-## Phases (executed 2026-05-05, ~7 wall-time hours)
+Sample: UK ~14-18 events / Eurozone ~17-20 events (Phase 0 Day 1 verification mandatory).
 
-- Phase 0 (Day 1-3): SLOOS fetch + universe + AR(1) shock construct + sector_panel + n_min audit
-- Phase 1 (Day 4-9): Layer A Bonferroni-33 + 5-component baseline build + Layer D Δ Sharpe + Gate M
-- Phase 2 (Day 10-12): Gate L + Gate K + Walk-forward 5-fold + scoop checks
-- Phase 3 v1+v2 (2026-05-05): CRSP survivor-bias + time-varying lookahead-bias 보정 (3 panel versions)
-- Phase 4 (2026-05-05): event-study reframing (CLAUDE.md §1 amended) + 4 PRIMARY robustness tests + Gate N retroactive legitimization
+## Known caveats
 
-## 강제 규칙
+- **FTSE 350 vendor unavailable** in Compustat Global (idxcstflg=N for FTSE 100/250/350/AllShare, 0 reconstitution rows). UK substitute = STOXX 600 GBR-filter (33% of FTSE 350 size, large/mid-cap only). Bonferroni power 1.4× loss documented as §limitation.
+- **6-component baseline US-anchored** (Ken French US factors, BKP US E-CSI, Ferreira US SRF). Per-country factor library 부재 — paper §limitation 명시. Future revision robustness check via Datastream subscription path 가능 (현재 학교 subscription unblock 거부).
+- **Survivor bias**: STOXX 600 universe 의 time-varying from/thru 검증 의무 (Phase 0 Day 2). filtered g_secd dump 가 universe-restricted 라 *currently-active firms 만* 포함 가능성 잔존.
 
-CLAUDE.md §1 (17 locks + Phase 4 PRIMARY robustness block + 5 amendments governance-OK).
+## Korean distill
 
-## 참고 audits
+See `analysis/README_KR.md` (한국어 distill, close 시점에 finalize).
 
-- **governance close (LAYER A LOCKED — event-study class)**: `D:/vscode/meta-harness/audits/2026-05-05-S1-governance-close-layer-a-locked-event-study.md`
-- **comprehensive research report (985 lines)**: `D:/vscode/meta-harness/audits/2026-05-05-sloos_sector_cross_section-comprehensive-research-report.md`
-- **close propagation P1/P2/P3 verification**: `D:/vscode/meta-harness/audits/2026-05-05-S1-close-propagation.md`
-- S1-side daily/phase audits (17 files): `audits/2026-05-05-S1-*.md`
+## Reproduction
 
-## Setup
+(Will be populated after S3 close.)
 
-```bash
-uv sync --extra dev
-# .env (gitignored) 작성: FRED_API_KEY (free) / OPENROUTER_API_KEY (optional, scoop only) / PROJECT_NAME
-uv run pytest          # 105+ tests, all green
+## License
 
-# Forward sector-pattern monitor (gate 아닌 health monitoring; run after each new SLOOS release)
-uv run python -m sloos_sector_cross_section.forward_monitor
-```
+MIT (S1 inheritance)
 
-## Outcome class
+## Acknowledgments
 
-- ✅ **LAYER A LOCKED — event-study class** (current, closed 2026-05-05): cell-level Bonferroni-K=33 + F-test heterogeneity + alternative event def 3 PRIMARY strict PASS → paper + Streamlit + bilingual README + GitHub public push (사용자 명시 승인 후)
-- frozen-two-layer (event-study sub-mode): Gate N PRIMARY 2 이하 PASS — applies to other thin-event-study candidates, not S1
-- ABANDONED: cell-level Bonferroni < 5 — does not apply
-
-**Forward gate**: 없음 (CLAUDE.md §5 governance close 결정). forward sector-pattern monitor (gate 아님 — health monitoring 만) 분기별 운영. forward Spearman drop 시 paper limitation 갱신, **LAYER A LOCKED 지위 demote 안 함**.
-
-## QR Scout portfolio context
-
-- **5번째 1차 PR piece** (X / β / F6 / disclosure-decay-meta-tool 다음)
-- **LAYER A LOCKED 두 번째** + **first event-study sub-class member** (Gate N thin-event-study class first instance)
-- **Macro/Credit pod first LOCKED** (V1 frozen-two-layer / S1 LOCKED 으로 sub-pod 분리 확인)
-- **method maturity flagship** — 5 lock amendment 투명 audit + Phase 4 reframing 정당성 + 3 panel version bias trail
-- **infrastructure asset 4 sister repo lift** (time-varying CCM link 워크어라운드)
-
-GitHub public push: 사용자 명시 승인 후 (CLAUDE.md §5 + governance close §0.6). target `github.com/Crane-lupert/sloos_sector_cross_section` (X / F6 / V1 답습 naming).
+This research builds on:
+- Wilson, Linus (2023). *Finance Research Letters* 54: 103755.
+- Hafemann, Lucas and Peter Tillmann (2021). Marburg WP 2021-31 / SSRN 4000366.
+- Bidder, Rhys, David Krane, and Joonkyu Park (2026.02). *Federal Reserve FEDS Notes*.
+- Bassett, William F., Mary Beth Chosak, John C. Driscoll, and Egon Zakrajšek (2014). *J Monetary Economics* 62.
+- Ferreira, Thiago R. T. (2024). *J Monetary Economics* 147(C).
+- Lucca, David O. and Emanuel Moench (2015). *J Finance* 70(1).
+- Savor, Pavel and Mungo Wilson (2014). *RFS* 113(2).
+- S1 sloos_sector_cross_section (Crane-lupert, 2026-05-05, MIT) — direct US-side foundation.

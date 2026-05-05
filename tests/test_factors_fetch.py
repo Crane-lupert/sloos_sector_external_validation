@@ -7,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.factors_fetch import (
+from sloos_sector_external_validation.factors_fetch import (
     KEN_FRENCH_URLS,
     _parse_french_csv,
     cumulative_factor_return,

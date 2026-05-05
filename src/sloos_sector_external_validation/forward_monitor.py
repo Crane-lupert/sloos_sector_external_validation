@@ -194,8 +194,8 @@ def write_audit_template(
     body = (
         f"# S1 forward-monitor #{nth} — {report.snapshot_date}\n"
         f"\n"
-        f"**Repo**: `D:/vscode/sloos_sector_cross_section`\n"
-        f"**Module**: `src/sloos_sector_cross_section/forward_monitor.py`\n"
+        f"**Repo**: `D:/vscode/sloos_sector_external_validation`\n"
+        f"**Module**: `src/sloos_sector_external_validation/forward_monitor.py`\n"
         f"**Audit type**: health monitoring (gate-aside per governance close §6)\n"
         f"\n"
         f"## Status (read-only)\n"

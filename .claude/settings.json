@@ -2,9 +2,9 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
-      "Read(D:/vscode/sloos_sector_cross_section/**)",
-      "Edit(D:/vscode/sloos_sector_cross_section/**)",
-      "Write(D:/vscode/sloos_sector_cross_section/**)",
+      "Read(D:/vscode/sloos_sector_external_validation/**)",
+      "Edit(D:/vscode/sloos_sector_external_validation/**)",
+      "Write(D:/vscode/sloos_sector_external_validation/**)",
       "Read(E:/wrds-data-courier/**)",
       "Read(D:/vscode/portfolio-coordination/**)",
       "Read(D:/vscode/meta-harness/**)",

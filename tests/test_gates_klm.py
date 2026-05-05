@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.gates_klm import (
+from sloos_sector_external_validation.gates_klm import (
     GATE_K_RATIO_FLOOR,
     GATE_L_DECAY_FLOOR,
     GATE_M_COST_BP_PER_YEAR,

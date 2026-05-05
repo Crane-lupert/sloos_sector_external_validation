@@ -39,7 +39,7 @@ KEN_FRENCH_URLS: dict[str, str] = {
 
 
 def _download_zip_csv(url: str, expected_csv_inside: str | None = None, timeout: int = 60) -> str:
-    headers = {"User-Agent": "Mozilla/5.0 sloos_sector_cross_section discovery research"}
+    headers = {"User-Agent": "Mozilla/5.0 sloos_sector_external_validation discovery research"}
     r = requests.get(url, headers=headers, timeout=timeout)
     r.raise_for_status()
     z = zipfile.ZipFile(io.BytesIO(r.content))

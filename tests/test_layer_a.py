@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.layer_a import (
+from sloos_sector_external_validation.layer_a import (
     ALPHA,
     K_BONFERRONI,
     _bonferroni_critical_t,

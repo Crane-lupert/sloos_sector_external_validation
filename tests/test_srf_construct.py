@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.srf_construct import (
+from sloos_sector_external_validation.srf_construct import (
     FINANCIAL_SECTOR_CODE,
     _financial_gvkeys,
     _quarter_release_date,

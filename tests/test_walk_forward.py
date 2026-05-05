@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.walk_forward import (
+from sloos_sector_external_validation.walk_forward import (
     N_FOLDS,
     WALK_FORWARD_FLOOR,
     _split_chronological,

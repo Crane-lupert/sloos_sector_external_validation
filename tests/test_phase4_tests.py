@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.phase4_tests import (
+from sloos_sector_external_validation.phase4_tests import (
     run_test_a_ftest,
     run_test_b_bootstrap,
     run_test_d_vix_regime,

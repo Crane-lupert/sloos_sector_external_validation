@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import pytest
 
-from sloos_sector_cross_section.wrds_courier_adapter import (
+from sloos_sector_external_validation.wrds_courier_adapter import (
     COMPUSTAT_SCHEMA,
     TABLE_ALIAS,
     open_db,

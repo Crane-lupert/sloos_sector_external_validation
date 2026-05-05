@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from sloos_sector_cross_section.sector_panel import (
+from sloos_sector_external_validation.sector_panel import (
     HORIZONS_TD,
     PRIMARY_IID,
     _per_firm_event_returns,
