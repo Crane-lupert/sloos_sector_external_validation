@@ -35,6 +35,9 @@ logger = logging.getLogger(__name__)
 KEN_FRENCH_URLS: dict[str, str] = {
     "ff5_daily": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_5_Factors_2x3_daily_CSV.zip",
     "mom_daily": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Momentum_Factor_daily_CSV.zip",
+    # S3 Path B — European factor variants for Eurozone analysis (Day 5 addition)
+    "europe_ff5_daily": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Europe_5_Factors_Daily_CSV.zip",
+    "europe_mom_daily": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Europe_MOM_Factor_Daily_CSV.zip",
 }
 
 
@@ -117,7 +120,7 @@ def fetch_mom_daily() -> pd.DataFrame:
 
 
 def fetch_factors(out_dir: Path = Path("data/cache"), save: bool = True) -> pd.DataFrame:
-    """Fetch FF5 daily + Mom daily, merge on date."""
+    """Fetch FF5 daily + Mom daily (US factors), merge on date."""
     ff5 = fetch_ff5_daily()
     mom = fetch_mom_daily()
     merged = ff5.join(mom, how="inner")
@@ -125,6 +128,50 @@ def fetch_factors(out_dir: Path = Path("data/cache"), save: bool = True) -> pd.D
         out_dir.mkdir(parents=True, exist_ok=True)
         snap = pd.Timestamp.utcnow().tz_localize(None).strftime("%Y-%m-%d")
         merged.to_parquet(out_dir / f"ff5_mom_daily_{snap}.parquet")
+    return merged
+
+
+def fetch_europe_ff5_daily() -> pd.DataFrame:
+    """Ken French Europe 5-Factor daily (1990-Q3 to present).
+
+    European factor universe is appropriate for Eurozone equity analysis (S3 Path B).
+    Avoids the US-anchored caveat that applies when using `fetch_ff5_daily()` on a
+    European panel.
+    """
+    text = _download_zip_csv(KEN_FRENCH_URLS["europe_ff5_daily"])
+    df = _parse_french_csv(text)
+    expected = {"Mkt-RF", "SMB", "HML", "RMW", "CMA", "RF"}
+    missing = expected - set(df.columns)
+    if missing:
+        logger.warning("Ken French Europe FF5 missing columns: %s", missing)
+    return df
+
+
+def fetch_europe_mom_daily() -> pd.DataFrame:
+    """Ken French Europe Momentum daily."""
+    text = _download_zip_csv(KEN_FRENCH_URLS["europe_mom_daily"])
+    df = _parse_french_csv(text)
+    df.columns = [c.strip() for c in df.columns]
+    if "Mom" not in df.columns:
+        for cand in ("UMD", "MOM", "WML"):
+            if cand in df.columns:
+                df = df.rename(columns={cand: "Mom"})
+                break
+    return df
+
+
+def fetch_europe_factors(out_dir: Path = Path("data/cache"), save: bool = True) -> pd.DataFrame:
+    """Fetch Europe FF5 daily + Mom daily, merge on date.
+
+    For S3 Path B Eurozone Layer D regression baseline. Available 1990-Q3 onward.
+    """
+    ff5 = fetch_europe_ff5_daily()
+    mom = fetch_europe_mom_daily()
+    merged = ff5.join(mom, how="inner")
+    if save:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        snap = pd.Timestamp.utcnow().tz_localize(None).strftime("%Y-%m-%d")
+        merged.to_parquet(out_dir / f"europe_ff5_mom_daily_{snap}.parquet")
     return merged
 
 
@@ -146,6 +193,9 @@ __all__ = [
     "KEN_FRENCH_URLS",
     "_parse_french_csv",
     "cumulative_factor_return",
+    "fetch_europe_factors",
+    "fetch_europe_ff5_daily",
+    "fetch_europe_mom_daily",
     "fetch_factors",
     "fetch_ff5_daily",
     "fetch_mom_daily",
