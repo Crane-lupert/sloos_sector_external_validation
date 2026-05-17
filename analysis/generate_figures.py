@@ -358,7 +358,7 @@ def fig7_basket_equity_curve() -> None:
     raw_sharpe_per_event = mean_excess / sd_excess if sd_excess > 0 else np.nan
     raw_sharpe_ann = raw_sharpe_per_event * np.sqrt(2.0)  # ~2 events / yr long-run
 
-    fig, ax = plt.subplots(figsize=(10, 5.0))
+    fig, ax = plt.subplots(figsize=(11, 5.4))
     ax.plot(
         df["event_date"],
         df["basket_cum"],
@@ -366,7 +366,10 @@ def fig7_basket_equity_curve() -> None:
         ms=5,
         lw=1.8,
         color="#1a7a2e",
-        label="L Industrials / S {CommSvc, Utilities} basket (6m hold per event)",
+        label=(
+            "Strategy: long Industrials, short ½·(Communication Services + Utilities)\n"
+            "Universe: Eurozone STOXX 600 firms, entered at each ECB BLS shock, 6-month hold"
+        ),
     )
     ax.plot(
         df["event_date"],
@@ -376,15 +379,21 @@ def fig7_basket_equity_curve() -> None:
         lw=1.2,
         color="#888",
         linestyle="--",
-        label="Equal-weight 11-sector benchmark (same 21 events)",
+        label=(
+            "Benchmark: equal-weight 11 Eurozone GICS sectors\n"
+            "(same 21 shock windows — controls for general 6-month market drift)"
+        ),
     )
     ax.axhline(1.0, color="0.4", lw=0.6)
-    ax.set_ylabel("Cumulative wealth (start = 1.00)")
-    ax.set_xlabel("Event date (Eurozone ECB BLS AR(1) shock, 21 events 2003–2023)")
+    ax.set_ylabel("Cumulative wealth (start = 1.00, compounded across events)")
+    ax.set_xlabel(
+        "Event date — ECB Bank Lending Survey AR(1) credit-supply shock "
+        "(|z| > 1σ, n = 21 events, 2003 Q1 – 2023 Q3)"
+    )
     final_wealth = df["basket_cum"].iloc[-1]
     ax.set_title(
-        f"Eurozone basket equity curve — event-stacked, 6m holding per event  "
-        f"(n={n}, mean per event = {mean_excess*100:+.2f}%, ending wealth = {final_wealth:.2f}×)"
+        f"Eurozone — cyclical-minus-defensive basket compounded across 21 BLS credit-supply shocks  "
+        f"({1.0:.2f}× → {final_wealth:.2f}×, mean per event = {mean_excess*100:+.2f}%)"
     )
     ax.legend(loc="upper left", frameon=False, fontsize=9)
     fig.autofmt_xdate()
