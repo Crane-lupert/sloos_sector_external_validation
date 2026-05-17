@@ -97,7 +97,7 @@ stop trigger 발화 시 `audits/RESUMABLE.md` 작성.
 
 ## 7. Governance + STOP
 
-- A+ external validation 시 → `LAYER_A_LOCKED.md` + paper draft + bilingual README + Streamlit MVP
+- A+ external validation 시 → `LAYER_A_LOCKED.md` + paper draft + bilingual README + local Streamlit app (no public Cloud deployment — link-rot avoidance)
 - A 2-of-3 country / B+ partial → status file + paper draft (modest framing)
 - frozen-two-layer (Path B sub-mode) → `FROZEN_TWO_LAYER.md` + post-mortem
 - ABANDONED → `ABANDONED.md`

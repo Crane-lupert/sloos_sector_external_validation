@@ -78,7 +78,20 @@ See `analysis/README_KR.md` (한국어 distill, close 시점에 finalize).
 
 ## Reproduction
 
-(Will be populated after S3 close.)
+Code, data, and figures are committed alongside the paper draft (`analysis/paper_v2_en.md`) so reviewers can reproduce the analysis end-to-end.
+
+```bash
+# Install dependencies
+uv sync
+
+# Regenerate figures from cached parquet/json
+uv run python analysis/generate_figures.py
+
+# Run the local interactive dashboard (NOT publicly hosted)
+uv run streamlit run dashboard/app.py
+```
+
+The dashboard is local-only — there is no public Streamlit Cloud deployment, both to avoid free-tier inactivity sleep and to eliminate link-rot risk for the published paper. All figures, tables, and numerical claims in the paper can be regenerated from the cached parquet/json files in `data/cache/` without touching the dashboard.
 
 ## License
 
