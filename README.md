@@ -2,6 +2,8 @@
 
 🚀 **LAUNCHING — Path B** (fork from S1 `sloos_sector_cross_section` close commit `4ce5c49`, 2026-05-06)
 
+> **SSRN preprint**: abstract_id **6729904** — <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6729904> (Ahn, Hyun; posted 2026-05-07). *"Cross-Country External Validation of Bank Lending Shock × Sector Equity Heterogeneity: Eurozone Replicates US, UK Universe-Power Caveat"*, working paper, 2026. Manuscript in this repository: [analysis/paper_v2_en.pdf](analysis/paper_v2_en.pdf).
+
 > Cross-country external validation — UK (BoE Credit Conditions Survey) + Eurozone (ECB Bank Lending Survey) replication of S1's SLOOS sectoral decomposition. Tier 1 candidate (J Mon Econ / RFS direct submission realistic if 3 of 3 cross-country Spearman pairs ≥ 0.5).
 
 ## What this repo does
@@ -95,7 +97,12 @@ The dashboard is local-only — there is no public Streamlit Cloud deployment, b
 
 ## License
 
-MIT (S1 inheritance)
+Source code in this repository is released under the [MIT License](LICENSE).
+
+The working-paper text and its figures are **not** covered by that licence: they
+remain (c) 2026 Hyun Ahn, all rights reserved. Third-party data are governed by
+their original providers' terms and are not redistributed here. See
+[NOTICE](NOTICE) for the full scope statement.
 
 ## Acknowledgments
 
