@@ -2,7 +2,7 @@
 
 **Loan-Officer Surveys and the Cross-Section of Bank Stock Returns: Evidence from Commercial Real Estate Lending Standards, 1991–2024** — working paper, v3 (November 2026).
 
-Manuscript: [analysis/paper_v3_en.md](analysis/paper_v3_en.md) · Korean summary: [analysis/README_KR.md](analysis/README_KR.md)
+Manuscript: [analysis/paper_v3_en.md](analysis/paper_v3_en.md) · Korean version: [analysis/paper_v3_kr.md](analysis/paper_v3_kr.md) · Korean summary: [analysis/README_KR.md](analysis/README_KR.md)
 
 > **Status.** v3 replaces the May 2026 manuscript posted as SSRN 6729904 ("Cross-Country External Validation of Bank Lending Shock × Sector Equity Heterogeneity"). The sector-level results of that version do not survive corrected event dates, point-in-time universes and event-level inference (paper, Appendix C). The SSRN entry is being revised to v3; until that revision is posted, the PDF on SSRN is the earlier version, which is kept here under [analysis/archive_v2/](analysis/archive_v2/).
 
