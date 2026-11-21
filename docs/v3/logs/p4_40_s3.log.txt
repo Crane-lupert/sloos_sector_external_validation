@@ -1,0 +1,9 @@
+[    0s] US days without rf: 0
+[    0s] S3 US 1997-2024: n=108 slope -0.0536%/pp t -1.24 | R2_OS -0.0501 (CT -0.0258, n_oos 88) | Sharpe timing 0.474 vs B&H 0.444 | in equity 0.49
+[    0s] S3 US 1990-2024: n=138 slope -0.0468%/pp t -1.22 | R2_OS +0.0065 (CT +0.0060, n_oos 118) | Sharpe timing 0.563 vs B&H 0.496 | in equity 0.59
+[    0s] S3 US 2015-2024: n=38 slope +0.0867%/pp t +1.88 | R2_OS -0.2263 (CT -0.1289, n_oos 38) | Sharpe timing 0.107 vs B&H 0.631 | in equity 0.37
+[   15s] EU cap rows 3880297 | UK-GBP prccd median 4.424 | GBP->GBP rate rows 1848
+[   25s] S3 EZ 2003-2024: n=86 slope -0.0603%/pp t -0.80 | R2_OS -0.0194 (CT -0.0010, n_oos 66) | Sharpe timing 0.472 vs B&H 0.477 (RF=0) | members 300, cap coverage 1.000
+[   37s] S3 EZ_broad 2003-2024: n=86 slope -0.0588%/pp t -0.78 | R2_OS -0.0224 (CT +0.0026, n_oos 66) | Sharpe timing 0.518 vs B&H 0.521 (RF=0) | members 422, cap coverage 1.000
+[   47s] S3 UK 2007-2024: n=68 slope -0.1349%/pp t -1.84 | R2_OS -0.1612 (CT -0.1692, n_oos 48) | Sharpe timing 0.425 vs B&H 0.383 (RF=0) | members 159, cap coverage 1.000
+[   47s] done

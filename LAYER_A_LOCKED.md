@@ -1,3 +1,8 @@
+> **2026-11 — Superseded.** The verdict in this document refers to the May 2026 sector event study. With event dates set to the
+> public release dates of each survey, point-in-time universes and one observation per survey event, no sector-horizon cell passes
+> in the United States, the euro area or the United Kingdom (0 of 33 in each); see `analysis/paper_v3_en.md`, Appendix C. The current
+> paper (v3) tests a different hypothesis. This file is kept as a record of the earlier analysis.
+
 # LAYER A LOCKED — Eurozone Bilateral External Validation
 
 **Project**: sloos_sector_external_validation (S3) — Path B international replication of S1

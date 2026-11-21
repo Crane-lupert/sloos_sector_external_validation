@@ -1,0 +1,26 @@
+[    4s] events (exact date, 1997-2024): 109
+[    6s] US events 109 members per event: median 262.0 min 168 | SIC-rule events 11
+      n_members     n0     n1
+year                         
+1995      329.3  329.3  329.3
+2000      272.4  272.4  272.4
+2005      277.4  277.4  277.4
+2010      206.4  206.4  206.4
+2015      278.4  278.4  278.4
+2020      253.6  253.6  253.6
+[    6s] S2_main_EW_CAR01 [1997-2024]: n=109 slope=-0.306%/10pp t=-1.06 | 1997-2010: +0.151 (t +1.01, n 54) | 2011-2024: -0.698 (t -1.50, n 55) | verdict: not holding
+[    6s] S2_day0_EW [1997-2024]: n=109 slope=-0.237%/10pp t=-1.16 | 1997-2010: -0.077 (t -0.58, n 54) | 2011-2024: -0.375 (t -1.07, n 55) | verdict: reported only
+[    6s] S2_VW_CAR01 [1997-2024]: n=109 slope=-0.441%/10pp t=-1.77 | 1997-2010: -0.134 (t -0.49, n 54) | 2011-2024: -0.709 (t -1.98, n 55) | verdict: reported only
+[    6s] S2_market_01 [1997-2024]: n=109 slope=-0.061%/10pp t=-0.45 | 1997-2010: -0.153 (t -0.65, n 54) | 2011-2024: +0.017 (t +0.12, n 55) | verdict: reported only
+[    6s] S2_ar1_surprise_EW_CAR01 [1997-2024]: n=109 slope=-0.283%/10pp t=-1.09 | 1997-2010: +0.161 (t +1.12, n 54) | 2011-2024: -0.697 (t -1.65, n 55) | verdict: reported only
+[    6s] terciles: bottom (s -33.5..-3.8) mean CAR -0.066% | top (s 2.8..41.5) -0.126% | diff -0.060 Welch t -0.12
+[    7s] S2_alt_link_all_years_EW_CAR01 [1997-2024]: n=109 slope=-0.301%/10pp t=-1.04 | 1997-2010: +0.161 (t +1.09, n 54) | 2011-2024: -0.698 (t -1.50, n 55) | verdict: reported only
+[    7s] alt-link: pre-2000 members median 286.0 vs SIC rule 332.0
+[   19s] EU index rows 17779803 duplicates dropped 0
+[   19s] S2_aux_EZ events 87 banks per event median 29.0 members median 300.0 | events with missing s: 0
+[   19s] S2_aux_EZ [2003-2024]: n=87 slope=-0.170%/10pp t=-0.91 |  | verdict: reported only
+[   20s] S2_aux_EZ_broad events 87 banks per event median 38.0 members median 422.0 | events with missing s: 0
+[   20s] S2_aux_EZ_broad [2003-2024]: n=87 slope=-0.211%/10pp t=-1.22 |  | verdict: reported only
+[   20s] S2_aux_UK events 69 banks per event median 6.0 members median 159.0 | events with missing s: 0
+[   20s] S2_aux_UK [2007-2024]: n=69 slope=+0.124%/10pp t=+0.79 |  | verdict: reported only
+[   20s] done

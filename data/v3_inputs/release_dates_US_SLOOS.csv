@@ -1,0 +1,146 @@
+fred_date,drtscilm,is_event,shock_sign,survey,url,last_update,received,due,lag_days,anomaly,release_date,source_field,approx_release_regular_practice,code_event_date
+1990-04-01,54.4,False,0,,,,,,,,,,1990-05-21,1990-04-01
+1990-07-01,46.7,False,0,,,,,,,,,,1990-08-24,1990-07-01
+1990-10-01,54.2,True,1,,,,,,,,,,1990-11-17,1990-10-01
+1991-01-01,38.6,False,0,,,,,,,,,,1991-02-08,1991-01-01
+1991-04-01,20.0,True,-1,,,,,,,,,,1991-05-21,1991-04-01
+1991-07-01,18.6,False,0,,,,,,,,,,1991-08-24,1991-07-01
+1991-10-01,16.7,False,0,,,,,,,,,,1991-11-17,1991-10-01
+1992-01-01,10.0,False,0,,,,,,,,,,1992-02-08,1992-01-01
+1992-04-01,3.5,False,0,,,,,,,,,,1992-05-21,1992-04-01
+1992-07-01,-3.4,False,0,,,,,,,,,,1992-08-24,1992-07-01
+1992-10-01,5.2,False,0,,,,,,,,,,1992-11-17,1992-10-01
+1993-01-01,3.4,False,0,,,,,,,,,,1993-02-08,1993-01-01
+1993-04-01,-12.1,True,-1,,,,,,,,,,1993-05-21,1993-04-01
+1993-07-01,-25.0,True,-1,,,,,,,,,,1993-08-24,1993-07-01
+1993-10-01,-20.0,False,0,,,,,,,,,,1993-11-17,1993-10-01
+1994-01-01,-18.6,False,0,,,,,,,,,,1994-02-08,1994-01-01
+1994-04-01,-15.5,False,0,,,,,,,,,,1994-05-21,1994-04-01
+1994-07-01,-10.3,False,0,,,,,,,,,,1994-08-24,1994-07-01
+1994-10-01,-22.4,True,-1,,,,,,,,,,1994-11-17,1994-10-01
+1995-01-01,-10.2,False,0,,,,,,,,,,1995-02-08,1995-01-01
+1995-04-01,-6.8,False,0,,,,,,,,,,1995-05-21,1995-04-01
+1995-07-01,-8.6,False,0,,,,,,,,,,1995-08-24,1995-07-01
+1995-10-01,-5.2,False,0,,,,,,,,,,1995-11-17,1995-10-01
+1996-01-01,6.9,False,0,,,,,,,,,,1996-02-08,1996-01-01
+1996-04-01,-1.8,False,0,,,,,,,,,,1996-05-21,1996-04-01
+1996-07-01,-7.4,False,0,,,,,,,,,,1996-08-24,1996-07-01
+1996-10-01,-8.6,False,0,,,,,,,,,,1996-11-17,1996-10-01
+1997-01-01,-8.9,False,0,January 1997,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199701/default.htm,1997-02-10,,,40.0,False,1997-02-10,Fed SLOOS page: 'Last update'/release date,,1997-01-01
+1997-04-01,-10.3,False,0,May 1997,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199705/default.htm,1997-05-23,,,52.0,False,1997-05-23,Fed SLOOS page: 'Last update'/release date,,1997-04-01
+1997-07-01,-5.8,False,0,August 1997,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199708/default.htm,1997-08-22,,,52.0,False,1997-08-22,Fed SLOOS page: 'Last update'/release date,,1997-07-01
+1997-10-01,-7.0,False,0,November 1997,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199711/default.htm,1997-11-17,,,47.0,False,1997-11-17,Fed SLOOS page: 'Last update'/release date,,1997-10-01
+1998-01-01,1.8,False,0,January 1998,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199802/default.htm,1998-02-09,,,39.0,False,1998-02-09,Fed SLOOS page: 'Last update'/release date,,1998-01-01
+1998-04-01,-7.1,False,0,May 1998,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199805/default.htm,1998-05-26,,,55.0,False,1998-05-26,Fed SLOOS page: 'Last update'/release date,,1998-04-01
+1998-07-01,0.0,False,0,August 1998,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199808/default.htm,1998-08-21,,,51.0,False,1998-08-21,Fed SLOOS page: 'Last update'/release date,,1998-07-01
+1998-10-01,36.4,True,1,November 1998,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199811/default.htm,1998-11-24,,,54.0,False,1998-11-24,Fed SLOOS page: 'Last update'/release date,,1998-10-01
+1999-01-01,7.4,True,-1,January 1999,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199902/default.htm,1999-02-08,,,38.0,False,1999-02-08,Fed SLOOS page: 'Last update'/release date,,1999-01-01
+1999-04-01,10.0,False,0,May 1999,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199905/default.htm,1999-08-27,,,148.0,True,,page date is a later revision (excluded); actual release not recovered,1999-05-21,1999-04-01
+1999-07-01,5.4,False,0,August 1999,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199908/default.htm,1999-08-30,,,60.0,False,1999-08-30,Fed SLOOS page: 'Last update'/release date,,1999-07-01
+1999-10-01,9.1,False,0,November 1999,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/199911/default.htm,1999-11-22,,,52.0,False,1999-11-22,Fed SLOOS page: 'Last update'/release date,,1999-10-01
+2000-01-01,10.9,False,0,January 2000,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200001/default.htm,2000-02-08,,,38.0,False,2000-02-08,Fed SLOOS page: 'Last update'/release date,,2000-01-01
+2000-04-01,24.6,True,1,May 2000,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200005/default.htm,2000-05-19,,,48.0,False,2000-05-19,Fed SLOOS page: 'Last update'/release date,,2000-04-01
+2000-07-01,33.9,True,1,August 2000,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200008/default.htm,2000-08-25,,,55.0,False,2000-08-25,Fed SLOOS page: 'Last update'/release date,,2000-07-01
+2000-10-01,43.9,True,1,November 2000,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200011/default.htm,2000-11-17,,,47.0,False,2000-11-17,Fed SLOOS page: 'Last update'/release date,,2000-10-01
+2001-01-01,59.6,True,1,January 2001,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200102/default.htm,2001-02-05,,,35.0,False,2001-02-05,Fed SLOOS page: 'Last update'/release date,,2001-01-01
+2001-04-01,50.9,False,0,May 2001,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200105/default.htm,2001-05-17,,,46.0,False,2001-05-17,Fed SLOOS page: 'Last update'/release date,,2001-04-01
+2001-07-01,40.4,False,0,August 2001,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200108/default.htm,2001-08-24,,,54.0,False,2001-08-24,Fed SLOOS page: 'Last update'/release date,,2001-07-01
+2001-10-01,50.9,True,1,October 2001,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200111/default.htm,2001-11-13,,,43.0,False,2001-11-13,Fed SLOOS page: 'Last update'/release date,,2001-10-01
+2002-01-01,45.5,False,0,January 2002,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200202/default.htm,2002-02-04,,,34.0,False,2002-02-04,Fed SLOOS page: 'Last update'/release date,,2002-01-01
+2002-04-01,25.0,True,-1,April 2002,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200205/default.htm,2002-05-10,,,39.0,False,2002-05-10,Fed SLOOS page: 'Last update'/release date,,2002-04-01
+2002-07-01,21.4,False,0,August 2002,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200208/default.htm,2002-08-19,,,49.0,False,2002-08-19,Fed SLOOS page: 'Last update'/release date,,2002-07-01
+2002-10-01,20.0,False,0,October 2002,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200211/default.htm,2002-11-12,,,42.0,False,2002-11-12,Fed SLOOS page: 'Last update'/release date,,2002-10-01
+2003-01-01,22.0,False,0,January 2003,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200301/default.htm,2003-01-31,,,30.0,False,2003-01-31,Fed SLOOS page: 'Last update'/release date,,2003-01-01
+2003-04-01,8.9,False,0,April 2003,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200305/default.htm,2003-05-09,,,38.0,False,2003-05-09,Fed SLOOS page: 'Last update'/release date,,2003-04-01
+2003-07-01,3.4,False,0,August 2003,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200308/default.htm,2003-08-15,,,45.0,False,2003-08-15,Fed SLOOS page: 'Last update'/release date,,2003-07-01
+2003-10-01,0.0,False,0,October 2003,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200310/default.htm,2003-11-03,,,33.0,False,2003-11-03,Fed SLOOS page: 'Last update'/release date,,2003-10-01
+2004-01-01,-17.9,True,-1,January 2004,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200401/default.htm,2004-02-03,,,33.0,False,2004-02-03,Fed SLOOS page: 'Last update'/release date,,2004-01-01
+2004-04-01,-22.8,False,0,April 2004,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200405/default.htm,2004-05-07,,,36.0,False,2004-05-07,Fed SLOOS page: 'Last update'/release date,,2004-04-01
+2004-07-01,-20.0,False,0,July 2004,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200407/default.htm,2004-08-16,,,46.0,False,2004-08-16,Fed SLOOS page: 'Last update'/release date,,2004-07-01
+2004-10-01,-21.1,False,0,October 2004,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200410/default.htm,2004-11-15,,,45.0,False,2004-11-15,Fed SLOOS page: 'Last update'/release date,,2004-10-01
+2005-01-01,-23.6,False,0,January 2005,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200501/default.htm,2005-02-07,,,37.0,False,2005-02-07,Fed SLOOS page: 'Last update'/release date,,2005-01-01
+2005-04-01,-24.1,False,0,April 2005,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200505/default.htm,2005-08-22,,,143.0,True,,page date is a later revision (excluded); actual release not recovered,2005-05-21,2005-04-01
+2005-07-01,-16.7,False,0,July 2005,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200508/default.htm,2005-08-22,,,52.0,False,2005-08-22,Fed SLOOS page: 'Last update'/release date,,2005-07-01
+2005-10-01,-8.8,False,0,October 2005,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200510/default.htm,2005-11-07,,,37.0,False,2005-11-07,Fed SLOOS page: 'Last update'/release date,,2005-10-01
+2006-01-01,-10.7,False,0,January 2006,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200601/default.htm,2006-02-08,,,38.0,False,2006-02-08,Fed SLOOS page: 'Last update'/release date,,2006-01-01
+2006-04-01,-12.3,False,0,April 2006,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200605/default.htm,2006-05-15,,,44.0,False,2006-05-15,Fed SLOOS page: 'Last update'/release date,,2006-04-01
+2006-07-01,-8.9,False,0,July 2006,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200608/default.htm,2006-08-14,,,44.0,False,2006-08-14,Fed SLOOS page: 'Last update'/release date,,2006-07-01
+2006-10-01,0.0,False,0,October 2006,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200610/default.htm,2006-10-30,,,29.0,False,2006-10-30,Fed SLOOS page: 'Last update'/release date,,2006-10-01
+2007-01-01,0.0,False,0,January 2007,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200701/default.htm,2007-02-05,,,35.0,False,2007-02-05,Fed SLOOS page: 'Last update'/release date,,2007-01-01
+2007-04-01,-3.8,False,0,April 2007,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200705/default.htm,2007-05-17,,,46.0,False,2007-05-17,Fed SLOOS page: 'Last update'/release date,,2007-04-01
+2007-07-01,7.5,False,0,July 2007,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200708/default.htm,2007-08-13,,,43.0,False,2007-08-13,Fed SLOOS page: 'Last update'/release date,,2007-07-01
+2007-10-01,19.2,True,1,October 2007,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200711/default.htm,2007-11-05,,,35.0,False,2007-11-05,Fed SLOOS page: 'Last update'/release date,,2007-10-01
+2008-01-01,32.1,True,1,January 2008,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200801/default.htm,2008-02-04,,,34.0,False,2008-02-04,Fed SLOOS page: 'Last update'/release date,,2008-01-01
+2008-04-01,55.4,True,1,April 2008,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200805/default.htm,2008-05-05,,,34.0,False,2008-05-05,Fed SLOOS page: 'Last update'/release date,,2008-04-01
+2008-07-01,57.7,False,0,July 2008,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200808/default.htm,2008-08-11,,,41.0,False,2008-08-11,Fed SLOOS page: 'Last update'/release date,,2008-07-01
+2008-10-01,83.6,True,1,October 2008,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200811/default.htm,2008-11-03,,,33.0,False,2008-11-03,Fed SLOOS page: 'Last update'/release date,,2008-10-01
+2009-01-01,64.2,False,0,January 2009,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200902/default.htm,2009-02-02,,,32.0,False,2009-02-02,Fed SLOOS page: 'Last update'/release date,,2009-01-01
+2009-04-01,39.6,True,-1,April 2009,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200905/default.htm,2009-05-04,,,33.0,False,2009-05-04,Fed SLOOS page: 'Last update'/release date,,2009-04-01
+2009-07-01,31.5,False,0,July 2009,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200908/default.htm,2009-08-17,,2009-07-28,47.0,False,2009-08-17,Fed SLOOS page: 'Last update'/release date,,2009-07-01
+2009-10-01,14.0,True,-1,October 2009,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/200911/default.htm,2009-11-09,,2009-10-20,39.0,False,2009-11-09,Fed SLOOS page: 'Last update'/release date,,2009-10-01
+2010-01-01,-5.5,True,-1,January 2010,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201002/default.htm,2010-02-01,,2010-01-12,31.0,False,2010-02-01,Fed SLOOS page: 'Last update'/release date,,2010-01-01
+2010-04-01,-7.1,False,0,April 2010,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201005/default.htm,2010-05-03,,2010-04-13,32.0,False,2010-05-03,Fed SLOOS page: 'Last update'/release date,,2010-04-01
+2010-07-01,-8.8,False,0,July 2010,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201008/default.htm,2010-08-16,,2010-07-27,46.0,False,2010-08-16,Fed SLOOS page: 'Last update'/release date,,2010-07-01
+2010-10-01,-10.5,False,0,October 2010,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201011/default.htm,2010-11-08,,2010-10-19,38.0,False,2010-11-08,Fed SLOOS page: 'Last update'/release date,,2010-10-01
+2011-01-01,-10.5,False,0,January 2011,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201102/default.htm,2011-01-31,,2011-01-11,30.0,False,2011-01-31,Fed SLOOS page: 'Last update'/release date,,2011-01-01
+2011-04-01,-16.4,False,0,April 2011,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201104/default.htm,2011-05-02,,2011-04-12,31.0,False,2011-05-02,Fed SLOOS page: 'Last update'/release date,,2011-04-01
+2011-07-01,-21.8,False,0,July 2011,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201108/default.htm,2011-08-15,,2011-07-26,45.0,False,2011-08-15,Fed SLOOS page: 'Last update'/release date,,2011-07-01
+2011-10-01,-5.9,True,1,October 2011,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201111/default.htm,2011-11-07,,2011-10-18,37.0,False,2011-11-07,Fed SLOOS page: 'Last update'/release date,,2011-10-01
+2012-01-01,5.4,False,0,January 2012,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201201/default.htm,2012-01-30,,2012-01-10,29.0,False,2012-01-30,Fed SLOOS page: 'Last update'/release date,,2012-01-01
+2012-04-01,-6.9,True,-1,April 2012,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201205/default.htm,2012-04-30,,2012-04-10,29.0,False,2012-04-30,Fed SLOOS page: 'Last update'/release date,,2012-04-01
+2012-07-01,-9.5,False,0,July 2012,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201208/default.htm,2012-08-06,,2012-07-17,36.0,False,2012-08-06,Fed SLOOS page: 'Last update'/release date,,2012-07-01
+2012-10-01,-7.6,False,0,October 2012,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201210/default.htm,2012-10-31,,2012-10-09,30.0,False,2012-10-31,Fed SLOOS page: 'Last update'/release date,,2012-10-01
+2013-01-01,-7.4,False,0,January 2013,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201302/default.htm,2013-02-04,,2013-01-15,34.0,False,2013-02-04,Fed SLOOS page: 'Last update'/release date,,2013-01-01
+2013-04-01,-19.1,True,-1,April 2013,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201305/default.htm,2013-05-06,,2013-04-16,35.0,False,2013-05-06,Fed SLOOS page: 'Last update'/release date,,2013-04-01
+2013-07-01,-18.1,False,0,July 2013,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201308/default.htm,2013-08-05,,2013-07-16,35.0,False,2013-08-05,Fed SLOOS page: 'Last update'/release date,,2013-07-01
+2013-10-01,-8.3,False,0,October 2013,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201311/default.htm,2013-11-04,,2013-10-15,34.0,False,2013-11-04,Fed SLOOS page: 'Last update'/release date,,2013-10-01
+2014-01-01,-13.7,False,0,January 2014,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201402/default.htm,2014-02-03,,2014-01-14,33.0,False,2014-02-03,Fed SLOOS page: 'Last update'/release date,,2014-01-01
+2014-04-01,-11.1,False,0,April 2014,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201405/default.htm,2014-05-05,,2014-04-15,34.0,False,2014-05-05,Fed SLOOS page: 'Last update'/release date,,2014-04-01
+2014-07-01,-10.7,False,0,July 2014,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201408/default.htm,2014-08-04,,2014-07-15,34.0,False,2014-08-04,Fed SLOOS page: 'Last update'/release date,,2014-07-01
+2014-10-01,-10.5,False,0,October 2014,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201411/default.htm,2014-11-03,,2014-10-14,33.0,False,2014-11-03,Fed SLOOS page: 'Last update'/release date,,2014-10-01
+2015-01-01,-5.5,False,0,January 2015,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201502/default.htm,2015-02-02,,,32.0,False,2015-02-02,Fed SLOOS page: 'Last update'/release date,,2015-01-01
+2015-04-01,-5.3,False,0,April 2015,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201505/default.htm,2015-05-04,,2015-04-14,33.0,False,2015-05-04,Fed SLOOS page: 'Last update'/release date,,2015-04-01
+2015-07-01,-7.0,False,0,July 2015,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201508/default.htm,2015-08-03,,2015-07-14,33.0,False,2015-08-03,Fed SLOOS page: 'Last update'/release date,,2015-07-01
+2015-10-01,7.4,True,1,October 2015,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201511/default.htm,2015-11-02,,2015-10-13,32.0,False,2015-11-02,Fed SLOOS page: 'Last update'/release date,,2015-10-01
+2016-01-01,8.2,False,0,January 2016,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201602/default.htm,2016-02-01,,2016-01-12,31.0,False,2016-02-01,Fed SLOOS page: 'Last update'/release date,,2016-01-01
+2016-04-01,11.6,False,0,April 2016,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201605/default.htm,2016-05-02,,2016-04-12,31.0,False,2016-05-02,Fed SLOOS page: 'Last update'/release date,,2016-04-01
+2016-07-01,8.5,False,0,July 2016,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201608/default.htm,2016-08-01,,2016-07-12,31.0,False,2016-08-01,Fed SLOOS page: 'Last update'/release date,,2016-07-01
+2016-10-01,1.5,False,0,October 2016,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201611/default.htm,2016-11-07,,2016-10-18,37.0,False,2016-11-07,Fed SLOOS page: 'Last update'/release date,,2016-10-01
+2017-01-01,1.4,False,0,January 2017,https://www.federalreserve.gov/boarddocs/SnLoanSurvey/201702/default.htm,2017-02-06,,2017-01-09,36.0,False,2017-02-06,Fed SLOOS page: 'Last update'/release date,,2017-01-01
+2017-04-01,-2.8,False,0,April 2017,https://www.federalreserve.gov/data/sloos/201705/default.htm,2017-05-08,,2017-04-10,37.0,False,2017-05-08,Fed SLOOS page: 'Last update'/release date,,2017-04-01
+2017-07-01,-3.9,False,0,July 2017,https://www.federalreserve.gov/data/sloos/201708/default.htm,2017-07-31,,2017-07-03,30.0,False,2017-07-31,Fed SLOOS page: 'Last update'/release date,,2017-07-01
+2017-10-01,-8.5,False,0,October 2017,https://www.federalreserve.gov/data/sloos/201710/default.htm,2017-11-06,,2017-10-10,36.0,False,2017-11-06,Fed SLOOS page: 'Last update'/release date,,2017-10-01
+2018-01-01,-10.0,False,0,January 2018,https://www.federalreserve.gov/data/sloos/sloos-201802.htm,2018-02-05,,2018-01-08,35.0,False,2018-02-05,Fed SLOOS page: 'Last update'/release date,,2018-01-01
+2018-04-01,-11.3,False,0,April 2018,https://www.federalreserve.gov/data/sloos/sloos-201804.htm,2019-06-06,2018-03-26,2018-04-09,431.0,True,,page date is a later revision (excluded); actual release not recovered,2018-05-21,2018-04-01
+2018-07-01,-15.9,False,0,July 2018,https://www.federalreserve.gov/data/sloos/sloos-201807.htm,2018-08-06,2018-06-25,2018-07-09,36.0,False,2018-08-06,Fed SLOOS page: 'Last update'/release date,,2018-07-01
+2018-10-01,-15.9,False,0,October 2018,https://www.federalreserve.gov/data/sloos/sloos-201810.htm,2018-11-13,2018-10-01,2018-10-12,43.0,False,2018-11-13,Fed SLOOS page: 'Last update'/release date,,2018-10-01
+2019-01-01,2.8,True,1,January 2019,https://www.federalreserve.gov/data/sloos/sloos-201901.htm,2019-02-04,,2019-01-07,34.0,False,2019-02-04,Fed SLOOS page: 'Last update'/release date,,2019-01-01
+2019-04-01,-4.2,False,0,April 2019,https://www.federalreserve.gov/data/sloos/sloos-201904.htm,2019-05-06,2019-03-25,2019-04-05,35.0,False,2019-05-06,Fed SLOOS page: 'Last update'/release date,,2019-04-01
+2019-07-01,-2.8,False,0,July 2019,https://www.federalreserve.gov/data/sloos/sloos-201907.htm,2019-08-05,2019-06-24,2019-07-05,35.0,False,2019-08-05,Fed SLOOS page: 'Last update'/release date,,2019-07-01
+2019-10-01,5.4,False,0,October 2019,https://www.federalreserve.gov/data/sloos/sloos-201910.htm,2019-11-04,2019-09-23,2019-10-04,34.0,False,2019-11-04,Fed SLOOS page: 'Last update'/release date,,2019-10-01
+2020-01-01,0.0,False,0,January 2020,https://www.federalreserve.gov/data/sloos/sloos-202001.htm,2020-02-03,,2020-01-03,33.0,False,2020-02-03,Fed SLOOS page: 'Last update'/release date,,2020-01-01
+2020-04-01,41.5,True,1,April 2020,https://www.federalreserve.gov/data/sloos/sloos-202004.htm,2020-05-04,2020-03-23,2020-04-03,33.0,False,2020-05-04,Fed SLOOS page: 'Last update'/release date,,2020-04-01
+2020-07-01,71.2,True,1,July 2020,https://www.federalreserve.gov/data/sloos/sloos-202007.htm,2020-08-03,2020-06-22,2020-07-02,33.0,False,2020-08-03,Fed SLOOS page: 'Last update'/release date,,2020-07-01
+2020-10-01,37.7,True,-1,October 2020,https://www.federalreserve.gov/data/sloos/sloos-202010.htm,2020-11-09,2020-09-28,2020-10-09,39.0,False,2020-11-09,Fed SLOOS page: 'Last update'/release date,,2020-10-01
+2021-01-01,5.5,True,-1,January 2021,https://www.federalreserve.gov/data/sloos/sloos-202101.htm,2021-02-01,2020-12-14,2021-01-04,31.0,False,2021-02-01,Fed SLOOS page: 'Last update'/release date,,2021-01-01
+2021-04-01,-15.1,True,-1,April 2021,https://www.federalreserve.gov/data/sloos/sloos-202104.htm,2021-05-03,2021-03-22,2021-04-02,32.0,False,2021-05-03,Fed SLOOS page: 'Last update'/release date,,2021-04-01
+2021-07-01,-32.4,True,-1,July 2021,https://www.federalreserve.gov/data/sloos/sloos-202107.htm,2021-08-03,2021-06-21,2021-07-01,33.0,False,2021-08-03,Fed SLOOS page: 'Last update'/release date,,2021-07-01
+2021-10-01,-18.2,False,0,October 2021,https://www.federalreserve.gov/data/sloos/sloos-202110.htm,2021-11-08,2021-09-27,2021-10-07,38.0,False,2021-11-08,Fed SLOOS page: 'Last update'/release date,,2021-10-01
+2022-01-01,-14.5,False,0,January 2022,https://www.federalreserve.gov/data/sloos/sloos-202201.htm,2022-01-31,2021-12-13,2021-12-30,30.0,False,2022-01-31,Fed SLOOS page: 'Last update'/release date,,2022-01-01
+2022-04-01,-1.5,False,0,April 2022,https://www.federalreserve.gov/data/sloos/sloos-202204.htm,2022-05-09,2022-03-28,2022-04-08,38.0,False,2022-05-09,Fed SLOOS page: 'Last update'/release date,,2022-04-01
+2022-07-01,24.2,True,1,July 2022,https://www.federalreserve.gov/data/sloos/sloos-202207.htm,2022-08-01,2022-06-16,2022-06-30,31.0,False,2022-08-01,Fed SLOOS page: 'Last update'/release date,,2022-07-01
+2022-10-01,39.1,True,1,October 2022,https://www.federalreserve.gov/data/sloos/sloos-202210.htm,2022-11-07,2022-09-26,2022-10-07,37.0,False,2022-11-07,Fed SLOOS page: 'Last update'/release date,,2022-10-01
+2023-01-01,44.8,False,0,January 2023,https://www.federalreserve.gov/data/sloos/sloos-202301.htm,2023-02-06,2022-12-19,2023-01-06,36.0,False,2023-02-06,Fed SLOOS page: 'Last update'/release date,,2023-01-01
+2023-04-01,46.0,False,0,April 2023,https://www.federalreserve.gov/data/sloos/sloos-202304.htm,2023-05-08,2023-03-27,2023-04-07,37.0,False,2023-05-08,Fed SLOOS page: 'Last update'/release date,,2023-04-01
+2023-07-01,50.8,False,0,July 2023,https://www.federalreserve.gov/data/sloos/sloos-202307.htm,2023-07-31,2023-06-15,2023-06-30,30.0,False,2023-07-31,Fed SLOOS page: 'Last update'/release date,,2023-07-01
+2023-10-01,33.9,False,0,October 2023,https://www.federalreserve.gov/data/sloos/sloos-202310.htm,2023-11-06,2023-09-25,2023-10-05,36.0,False,2023-11-06,Fed SLOOS page: 'Last update'/release date,,2023-10-01
+2024-01-01,14.5,True,-1,January 2024,https://www.federalreserve.gov/data/sloos/sloos-202401.htm,2024-02-05,2023-12-18,2024-01-09,35.0,False,2024-02-05,Fed SLOOS page: 'Last update'/release date,,2024-01-01
+2024-04-01,15.6,False,0,April 2024,https://www.federalreserve.gov/data/sloos/sloos-202404.htm,2024-05-06,2024-03-25,2024-04-08,35.0,False,2024-05-06,Fed SLOOS page: 'Last update'/release date,,2024-04-01
+2024-07-01,7.9,False,0,July 2024,https://www.federalreserve.gov/data/sloos/sloos-202407.htm,2024-08-05,2024-06-20,2024-07-08,35.0,False,2024-08-05,Fed SLOOS page: 'Last update'/release date,,2024-07-01
+2024-10-01,0.0,False,0,October 2024,https://www.federalreserve.gov/data/sloos/sloos-202410.htm,2024-11-12,2024-09-30,2024-10-10,42.0,False,2024-11-12,Fed SLOOS page: 'Last update'/release date,,2024-10-01
+2025-01-01,6.2,False,0,January 2025,https://www.federalreserve.gov/data/sloos/sloos-202501.htm,2025-02-03,2024-12-16,2025-01-03,33.0,False,2025-02-03,Fed SLOOS page: 'Last update'/release date,,2025-01-01
+2025-04-01,18.5,True,1,April 2025,https://www.federalreserve.gov/data/sloos/sloos-202504.htm,2025-05-12,2025-03-31,2025-04-11,41.0,False,2025-05-12,Fed SLOOS page: 'Last update'/release date,,2025-04-01
+2025-07-01,9.5,False,0,July 2025,https://www.federalreserve.gov/data/sloos/sloos-202507.htm,2025-08-04,2025-06-18,2025-07-02,34.0,False,2025-08-04,Fed SLOOS page: 'Last update'/release date,,2025-07-01
+2025-10-01,6.5,False,0,October 2025,https://www.federalreserve.gov/data/sloos/sloos-202510.htm,2025-11-03,2025-09-22,2025-10-03,33.0,False,2025-11-03,Fed SLOOS page: 'Last update'/release date,,2025-10-01
+2026-01-01,5.3,False,0,January 2026,https://www.federalreserve.gov/data/sloos/sloos-202601.htm,2026-02-02,2025-12-10,2026-01-02,32.0,False,2026-02-02,Fed SLOOS page: 'Last update'/release date,,2026-01-01
+2026-04-01,8.1,False,0,April 2026,https://www.federalreserve.gov/data/sloos/sloos-202604.htm,2026-05-04,2026-03-23,2026-04-03,33.0,False,2026-05-04,Fed SLOOS page: 'Last update'/release date,,2026-04-01

@@ -1,0 +1,173 @@
+{
+  "frozen_at": "2026-11-21, Step 1, before any outcome variable (holding-period / event-window return, L/S return, regression on returns) was computed. Done before this file: Step-0 inspection only (logs/p4_00..p4_04: FRED titles and observation ranges, Y-9C item definitions / coverage / duplicates, link-table structure, input headers) and raw extraction (logs/p4_10_extract.log: row counts only).",
+  "spec_source": "S1S3_sloos/PHASE4_SPEC.md (fixed 2026-11-21) + ../PHASE4_PROTOCOL.md + ../PHASE3_PROTOCOL.md section 3. This file fixes only what the spec leaves open; where the spec is explicit it is restated, not changed.",
+
+  "data": {
+    "crsp_daily": "legacy crsp_a_stock.dsf (SIZ; ends 2024-12-31, same file as the phase-3 S1S3 pipeline) for every permno of a linked permco (any inst_type) or with a bank SIC (6020-6029, 6710-6712) in any dsenames row; rows 1995-01-03..2024-12-31 (cache/crsp_bank_dsf.parquet, 5,049,365 rows, 1,891 permnos). dsf_v2 (CIZ) is not used: legacy dsf carries prc / shrout / bid / ask / ret for 1995-2024 and matches the phase-3 pipeline; the task note 'CRSP ends 2024-12' is met.",
+    "crsp_names": "crsp_a_stock.dsenames (namedt / nameendt validity; shrcd, exchcd, siccd = historical SIC of the name spell, permco)",
+    "delisting": "crsp_a_stock.dsedelist dlret / dlstcd / dlstdt",
+    "market": "crsp_a_stock.dsi vwretd (CRSP value-weighted, incl. distributions); trading calendar = dsi dates with non-null vwretd",
+    "factors": "dump ff_all.fivefactors_monthly (mktrf smb hml rmw cma rf umd) for monthly alphas; ff_all.fivefactors_daily rf for the daily T-bill rate (S3)",
+    "y9c": "bank_all.wrds_holding_bhck_1 / bhck_2 / holding_other_1, key (rssd9001, rssd9999), 2000-03-31..2025-12-31",
+    "link": "bank_all.wrds_bank_crsp_link (rssd9001, permco, inst_type, dt_start, dt_end), 1,495 rows, dt_start 1986-06-30..2024-07-12, dt_end max 2024-09-30",
+    "sloos_release_dates": "S1S3_sloos/out/release_dates_US_SLOOS.csv: release_date (exact, 1997+; missing for fred_date 1999-04-01, 2005-04-01, 2018-04-01), approx_release_regular_practice (used only where the spec says 'approx dates included')",
+    "eu": "S3 repo universes stoxx600_eurozone_universe_2026-05-06 / stoxx600_uk_universe_2026-05-06 (membership spells from_date..thru, all spells honoured as in phase 3); daily prices phase-1 out/g_secd_stoxx600_min.parquet (prccd, ajexdi, trfd); regional calendars phase3/out/cal_{EZ,UK}.csv; GICS industry group = comp_global_daily.g_company.ggroup (current); caps = g_secd.stoxx600_2003plus prccd x cshoc near formation dates; FX = g_exrt_dly (GBP-based: exratd = units of tocurd per 1 GBP)",
+    "eu_surveys": "EZ: out/release_dates_EZ_BLS.csv column wfnet (ECB BLS credit standards for loans to enterprises, weighted net percentage; the repo series behind shocks_ECB_BLS_OE_AR1) and release_date; UK: out/release_dates_UK_CCS.csv column neg_availability (BoE CCS corporate credit availability balance multiplied by -1, i.e. tightening positive) and release_date"
+  },
+
+  "fred_series": {
+    "rule": "IDs taken from the FRED search-results page for 'Net Percentage of Domestic Banks Tightening Standards' (logs/p4_00_fred_probe_a.log, _b, _c); a series is used only if its FRED series-page title starts with 'Net Percentage of Domestic Banks Tightening Standards for' (checked in logs/p4_01_fred.log, cache/fred_meta.csv). Excluded by construction: 'Large Domestic Banks' / 'Other Domestic Banks' subsets, the three loan-balance-weighted aggregates (SUBLPDMOSXWBNQ, SUBLPDMBSXWBNQ, SUBLPDMHSXWBNQ), demand (DRSDCILM) and willingness (DRIWCIL) series. Observations from fredgraph.csv (fetched 2026-11-21, header research-reverify/1.0); FRED observation date = first day of the survey quarter = fred_date of the release table.",
+    "used": [
+      {"id": "DRTSCILM", "category": "CI", "title": "Net Percentage of Domestic Banks Tightening Standards for Commercial and Industrial Loans to Large and Middle-Market Firms", "obs": "1990-04-01..2026-10-01", "n": 147},
+      {"id": "DRTSCIS", "category": "CI", "title": "Net Percentage of Domestic Banks Tightening Standards for Commercial and Industrial Loans to Small Firms", "obs": "1990-04-01..2026-10-01", "n": 147},
+      {"id": "DRTSCREL", "category": "CRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Commercial Real Estate Loans (DISCONTINUED)", "obs": "1990-07-01..2013-07-01", "n": 93},
+      {"id": "SUBLPDRCSC", "category": "CRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Commercial Real Estate Loans With Construction and Land Development Purposes", "obs": "2013-10-01..2026-10-01", "n": 53},
+      {"id": "SUBLPDRCSN", "category": "CRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Commercial Real Estate Loans Secured by Nonfarm Nonresidential Structures", "obs": "2013-10-01..2026-10-01", "n": 53},
+      {"id": "SUBLPDRCSM", "category": "CRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Commercial Real Estate Loans Secured by Multifamily Residential Structures", "obs": "2013-10-01..2026-10-01", "n": 53},
+      {"id": "DRTSPM", "category": "RRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Prime Mortgage Loans (DISCONTINUED)", "obs": "2007-04-01..2014-10-01", "n": 31},
+      {"id": "DRTSNT", "category": "RRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Nontraditional Mortgage Loans (DISCONTINUED)", "obs": "2007-04-01..2014-10-01", "n": 31},
+      {"id": "DRTSSP", "category": "RRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Subprime Mortgage Loans", "obs": "2007-04-01..2026-10-01 with gaps", "n": 60},
+      {"id": "SUBLPDHMSENQ", "category": "RRE", "title": "Net Percentage of Domestic Banks Tightening Standards for GSE-Eligible Mortgage Loans", "obs": "2015-01-01..2026-10-01", "n": 48},
+      {"id": "SUBLPDHMSGNQ", "category": "RRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Government Mortgage Loans", "obs": "2015-01-01..2026-10-01", "n": 48},
+      {"id": "SUBLPDHMSQNQ", "category": "RRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Qualified Mortgage Non-Jumbo, Non-GSE-Eligible Mortgage Loans", "obs": "2015-01-01..2026-10-01", "n": 48},
+      {"id": "SUBLPDHMSJNQ", "category": "RRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Qualified Mortgage Jumbo Mortgage Loans", "obs": "2015-01-01..2026-10-01", "n": 48},
+      {"id": "SUBLPDHMSKNQ", "category": "RRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Non-Qualified Mortgage Jumbo Mortgage Loans", "obs": "2015-01-01..2026-10-01", "n": 48},
+      {"id": "SUBLPDHMSMNQ", "category": "RRE", "title": "Net Percentage of Domestic Banks Tightening Standards for Non-Qualified Mortgage Non-Jumbo Mortgage Loans", "obs": "2015-01-01..2026-10-01", "n": 48},
+      {"id": "SUBLPDCLHSNQ", "category": "RRE", "title": "Net Percentage of Domestic Banks Tightening Standards for HELOCs", "obs": "2008-01-01..2026-10-01", "n": 76},
+      {"id": "DRTSCLCC", "category": "CC", "title": "Net Percentage of Domestic Banks Tightening Standards for Credit Card Loans", "obs": "1996-01-01..2026-10-01", "n": 124},
+      {"id": "DRTSCOCL", "category": "OC", "title": "Net Percentage of Domestic Banks Tightening Standards for Consumer Loans Excluding Credit Card (DISCONTINUED)", "obs": "1996-01-01..2011-01-01", "n": 61},
+      {"id": "STDSAUTO", "category": "OC", "title": "Net Percentage of Domestic Banks Tightening Standards for Auto Loans", "obs": "2011-04-01..2026-10-01", "n": 63},
+      {"id": "STDSOTHCONS", "category": "OC", "title": "Net Percentage of Domestic Banks Tightening Standards for Consumer Loans Excluding Credit Card and Auto Loans", "obs": "2011-04-01..2026-10-01", "n": 63}
+    ],
+    "not_used": [
+      {"id": "SUBLPDCLOSNQ", "why": "title passes ('... Consumer Loans Excluding Credit Card Loans (DISCONTINUED)', 1996-01-01..2011-01-01) but it duplicates DRTSCOCL (max |difference| 0.1 pp over 61 common quarters); averaging both would double-count one category"},
+      {"id": "H0SUBLPDHMSNQ", "why": "title 'Net Percentage of Banks Tightening Standards for Mortgage Loans (DISCONTINUED)', 1990-07-01..2007-01-01: fails the title rule ('of Banks', not 'of Domestic Banks'); not used. Consequence: no RRE series exists for surveys before 2007-04-01 -> RRE is dropped and the other shares renormalised (spec rule) for releases with fred_date <= 2007-01-01"}
+    ],
+    "category_N": {
+      "CI": "mean(DRTSCILM, DRTSCIS) at fred_date (spec)",
+      "CRE": "fred_date <= 2013-07-01: DRTSCREL; fred_date >= 2013-10-01: mean of SUBLPDRCSC, SUBLPDRCSN, SUBLPDRCSM available at fred_date (spec: construction / nonfarm nonresidential / multifamily from 2013Q4)",
+      "RRE": "mean of the RRE-category series available at fred_date: none before 2007-04-01 (category dropped); 2007-04-01..2014-10-01 DRTSPM, DRTSNT, DRTSSP (+ SUBLPDCLHSNQ from 2008-01-01); 2015-01-01+ the six 2015-classification series + DRTSSP + SUBLPDCLHSNQ. HELOCs are included because the spec's RRE loan share contains HELOC balances (BHDM1797)",
+      "CC": "DRTSCLCC",
+      "OC": "fred_date <= 2011-01-01: DRTSCOCL (consumer excl. credit card = auto + other consumer); fred_date >= 2011-04-01: mean(STDSAUTO, STDSOTHCONS) available",
+      "missing_category_rule": "a category with no available series at fred_date is dropped; each bank's remaining shares are divided by their sum (spec). A bank whose available-category share sum is 0 is excluded at that release",
+      "N_units": "% (FRED raw value)"
+    }
+  },
+
+  "y9c": {
+    "duplicates": "some (rssd9001, rssd9999) keys appear more than once with different wrdsdownloaddate (bhck_1 / bhck_2 1,112 keys, other_1 29,305 keys, mostly 2022-2025). Per file keep one row per key: the row with a non-null key item (bhck_1: bhck1763 or bhck1766; bhck_2: bhck2170; other_1: bhdm1797), earliest wrdsdownloaddate first (closest to real time); the number of keys whose kept and dropped rows differ is logged",
+    "filer_row": "a bank-quarter is usable iff bhck2170 (total assets) > 0 and the five-category loan total > 0",
+    "items": {
+      "CI": "bhck1763 + bhck1764 (missing bhck1764 counted 0) when bhck1763 is present; else bhck1766 (C&I total; equals 1763+1764 in 99.997% of 103,274 rows with all three; from 2019 about 550 filers per year report only bhck1766)",
+      "CRE": "construction = bhckf158 + bhckf159 when either is present (2007-03-31+), else bhdm1415 (ends 2007-12-31; 2007 overlap median ratio 1.000) + multifamily bhdm1460 + nonfarm nonresidential = bhckf160 + bhckf161 when either is present, else bhdm1480 (spec)",
+      "RRE": "bhdm1797 + bhdm5367 + bhdm5368 (spec)",
+      "CC": "bhckb538 from 2001-03-31 (spec). SUBSTITUTION for 2000-03-31..2000-12-31 reports: bhck2008 ('credit cards and related plans', valid 1991-03-31..2000-12-31; it also contains other revolving credit that bhckb539 later separates)",
+      "OC": "2011-03-31+: bhckb539 + bhckk137 + bhckk207; 2001-03-31..2010-12-31: bhckb539 + bhck2011 (spec); SUBSTITUTION 2000 reports: bhck2011 only (other revolving credit is inside bhck2008 = CC that year). Identity checks: CC+OC = bhck1975 in 99.87% (2001-10) and 99.997% (2011+) of rows",
+      "missing_and_negative": "within a usable filer row a missing component item is set to 0 (Y-9C blanks = not applicable); negative component values are set to 0; counts of both are logged. Shares = component / five-category total, so they sum to 1 by construction (asserted to 1e-9)",
+      "controls": "book equity = bhck3210 - bhck3283 (missing 3283 -> 0; <= 0 -> missing B/M); total loans bhck2122 for 3-year loan growth; total assets bhck2170 for link tie-breaks"
+    },
+    "lag_75d": "for release r, q*(r) = latest calendar quarter-end q with (r - q) >= 75 calendar days. The bank uses its report dated q*(r); if absent, its latest report dated within the two quarters before q*(r) (q*(r) - 183 days <= rssd9999 < q*(r)); else it has no signal at r. The dump starts 2000-03-31, so the first S1 release is the August 2000 survey release"
+  },
+
+  "us_universe": {
+    "link": "link rows with lower(inst_type) == 'bank holding company' (1,223 rows; 'commercial bank', 'thrift holding company' and other types excluded: spec says BHC). Valid at r iff dt_start <= r <= dt_end, where dt_end equal to the table maximum (2024-09-30, the table's last update; 281 rows) is treated as open-ended (still linked through 2024-12-31)",
+    "common_stock": "permnos of the permco with a dsenames spell valid at r (namedt <= r <= nameendt) with shrcd in {10, 11} and exchcd in {1, 2, 3}; if several, the one with the largest market cap at the price date (spec)",
+    "price_date": "S1: close of r (last CRSP record <= r, at most 5 trading days stale). S2: close of the last trading day before day 0 (same staleness rule) so that the screen does not condition on the event-window return",
+    "filters": "|prc| >= $5 and market cap = |prc| x shrout x 1000 >= $100M at the price date (spec). 'No filter' variant drops both",
+    "ties": "one rssd valid for several permcos at r -> keep the permco whose selected permno has the larger cap; one permco linked to several rssd at r -> S1 keeps the rssd with the larger bhck2170 in its Y-9C report used at r; S2 keeps the permco once",
+    "S2_pre2000": "release dates r < 2000-01-01 (1997-1999): bank = CRSP common stock (shrcd 10/11, exchcd 1/2/3) whose dsenames siccd valid at r is in 6020-6029 or 6710-6712, same price / cap screen, one permno per permco (largest cap). Spec rule as written (its premise 'the link table does not reach before 2000' is false for this table: dt_start goes back to 1986). Second reading, declared now and reported only (not used for the verdict): the link-table universe for all years including 1997-1999 (S2_alt_link_all_years)"
+  },
+
+  "returns": {
+    "daily": "legacy dsf ret; missing ret or ret < -1 (missing codes) -> 0; prc negative = bid/ask midpoint -> |prc|",
+    "delisting": "dsedelist records with dlstcd >= 200 appended as an extra return at max(dlstdt, last dsf date + 1 day); missing dlret with dlstcd 500-599 -> -0.30 if exchcd in {1,2}, -0.55 if exchcd 3 (Shumway 1997; Shumway-Warther 1999); other missing -> 0. After its last record a position is held in cash (0%) to the period end (phase-3 rule)",
+    "holding_return": "simple buy-and-hold R = I(exit)/I(entry) - 1 on the total-return index I; entry value = last record <= entry date (at most 5 trading days stale, else the stock cannot be bought and is excluded); exit value = last record <= exit date",
+    "units": "all reported returns in %"
+  },
+
+  "S1": {
+    "releases": "rebalance dates = US SLOOS releases with an exact release_date, q*(r) >= 2000-03-31, r <= 2024-12-31. Releases without an exact date (1999-04-01, 2005-04-01, 2018-04-01 surveys) are not rebalance points: the previous portfolio is held to the next exact release (spec: 'exact release date'). Approximate dates are not used in S1",
+    "timing": "t0(r) = first CRSP trading day strictly after r. Formation and entry at close of t0(r) (spec: next trading day close); exit at close of t0(r_next), r_next = next rebalance release. Only complete periods (exit <= 2024-12-31) are used; the period starting at the 2024-11-12 release is dropped",
+    "signal": "BT(i,r) = sum_k share'(i,k) x N(k,r), share' = shares renormalised over the categories available at r (spec). N(k,r) = category value at the release's fred_date",
+    "sample": "banks in the S1 universe at r (link-valid BHC common stock, filters at close of r) with a Y-9C signal and a valid entry at t0(r)",
+    "quintiles": "per formation date, rank BT ascending (ties by permno), quintile = ceil(5 x rank / n). LONG = quintile 1 (lowest BT), SHORT = quintile 5 (highest BT). A period needs n >= 25; otherwise dropped (count logged)",
+    "main_stat": "L/S_p = EW mean R(LONG) - EW mean R(SHORT) per holding period; statistic = time-series mean over periods, t from OLS on a constant with Newey-West HAC, 1 lag (statsmodels cov_type HAC, maxlags 1, default small-sample correction). Expected sign positive",
+    "halves": "release year 2000-2011 / 2012-2024 (spec)",
+    "verdict": "PHASE4 protocol section 3 with spec section 4: holds iff t >= 2.24 (two-sided Bonferroni 5%/2, expected sign) and both halves have a positive mean; weak iff expected sign and 1.96 <= t < 2.24, or t >= 2.24 with one half negative; otherwise not holding. A significant negative result is reported separately, not as holding. Reference: exact critical t.ppf(1 - 0.0125, n - 1) also printed",
+    "report_also": {
+      "VW": "value weights = market cap at the formation close, same legs",
+      "no_filter": "same construction without the $5 / $100M screens (quintiles re-formed in that universe)",
+      "calendar_monthly": "daily leg value V(t) = EW mean of I_i(t)/I_i(entry) within each holding period (buy-and-hold weights); daily leg return chained across periods; monthly leg return = product of daily (1+r) in the calendar month; monthly L/S = monthly LONG - monthly SHORT; months from the first formation month to the last exit month; regression on FF5 + UMD monthly (mktrf smb hml rmw cma umd), intercept t Newey-West 6 lags (phase-3 monthly convention)",
+      "fama_macbeth": "per period cross-section of the S1 sample: R_i ~ z(BT) + log(market cap, $M) + B/M + past 12-month return + 3-year loan growth. z(BT) = within-period standardised BT; B/M = book equity ($000) / market cap ($000) at formation; past return = I(t0)/I(t0 - 252 trading days) - 1 (both ends within 5 trading days stale, else missing); loan growth = ln(bhck2122_q / bhck2122_{q-12 quarters}) for the bank's Y-9C quarter q used (exact q-12 report required). B/M, past return and loan growth winsorised at the 1st / 99th within-period percentiles. Version B adds the raw (not renormalised) shares CI, CRE, CC, OC (RRE omitted base). Observations with any missing regressor dropped; periods with < 30 observations skipped. Coefficient time-series mean with Newey-West 1-lag t. Expected z(BT) sign negative",
+      "leg_shares": "mean over periods of the leg-mean raw shares and renormalised shares (5 categories), LONG and SHORT",
+      "counts": "per period: linked BHC common stocks valid at r, with Y-9C signal, after screens, with valid entry, per quintile; by year",
+      "costs": "half-spread hs = (ask - bid)/((ask + bid)/2)/2 from CRSP closing bid/ask on the trade date (last record <= date, at most 5 trading days stale), valid iff 0 < bid <= ask and relative spread < 0.5, else the median hs of the same leg on that date, else 0.25%. PRIMARY (turnover, PHASE3 section 3): at each rebalance close each leg trades |w_new - w_old_drifted| per name at that name's hs (cash from delisted names trades free); first entry buys the full leg, the last exit sells the full leg; cost booked to the period being entered (final liquidation to the last period). Short borrow 1% per year on the short leg x calendar days / 365 (spec). BOUND (full round trip): every position pays hs at entry and at exit each period. Net L/S = gross - long cost - short cost - borrow; mean and NW(1) t for both"
+    }
+  },
+
+  "S2": {
+    "events": "US SLOOS releases with an exact release_date, release year 1997-2024, day +1 <= 2024-12-31 (spec)",
+    "surprise": "s(r) = DRTSCILM(fred_date of r) - DRTSCILM(previous quarterly observation) in pp (spec), regressor s/10",
+    "days": "day 0 = first CRSP trading day >= r (release day; SLOOS is published intraday), day +1 = next trading day",
+    "bank_portfolio": "members fixed at the pre-window close (see us_universe); daily EW mean over members with a dsf record that day (missing ret -> member skipped that day); a delisting return dated day 0 or +1 is compounded into that member's day return. VW variant: weights = market cap at the pre-window close",
+    "AR": "AR_t = bank portfolio return - vwretd (dsi); CAR[0,+1] = AR_0 + AR_1 (sum), in %",
+    "main_stat": "OLS CAR[0,+1] = a + b (s/10) + e, White HC0 t on b. Expected sign negative. Verdict as S1 with the sign reversed (b <= -2.24 and both halves negative)",
+    "halves": "release year 1997-2010 / 2011-2024 (spec)",
+    "report_also": {
+      "day0": "CAR[0] = AR_0 on s/10",
+      "VW": "VW bank portfolio CAR[0,+1] on s/10",
+      "market": "vwretd_0 + vwretd_1 on s/10 (two-sided, no expected sign)",
+      "ar1_surprise": "u(r) = y_q - (a + rho y_{q-1}), a / rho from OLS on DRTSCILM quarterly observations from 1990-04-01 up to the quarter before q (expanding, data known before r); CAR[0,+1] on u/10",
+      "terciles": "events ranked by s(r) (ties by date) into three equal-size groups (pd.qcut on rank); mean CAR[0,+1] and its t in the bottom and top tercile, top - bottom difference with Welch t",
+      "alt_link_all_years": "second reading of the pre-2000 bank definition (see us_universe.S2_pre2000); main regression only"
+    },
+    "aux_EZ_UK": {
+      "status": "reported only (spec section 2 and 4)",
+      "bank_id": "g_company.ggroup == '4010' (current GICS; available for the universe gvkeys, so the spec condition 'bank identification directly from Compustat Global GICS 4010' is met)",
+      "EZ_universe": "PRIMARY: repo 'eurozone' universe restricted to listings whose g_company loc is a euro-area country (AUT BEL CYP DEU ESP EST FIN FRA GRC HRV IRL ITA LTU LUX LVA MLT NLD PRT SVK SVN); the repo file is in fact STOXX 600 ex-UK (CHE, SWE, DNK, NOR, POL ... listings) and the BLS surveys euro-area banks only. SECOND READING (declared now, reported only): the repo universe as used in phase 3 ('EZ_broad')",
+      "UK_universe": "repo UK universe",
+      "events": "releases with release_date, EZ 2003-2024, UK 2007-2024 (same years as S3; US CRSP ends 2024)",
+      "surprise": "EZ: wfnet(r) - wfnet(previous survey row); UK: neg_availability(r) - neg_availability(previous row) (tightening positive, spec); regressor /10",
+      "returns": "daily total return = adj_t / adj_prev - 1 with adj = prccd x trfd / ajexdi, previous record at most 5 regional trading days earlier, |log return| >= 1.5 dropped (phase-3 cleaning); membership at r (from_date <= r <= thru); banks EW minus all-member EW, day 0 = first regional trading day >= r, day +1 next; local currency",
+      "stat": "same regression, White HC0 t"
+    }
+  },
+
+  "S3": {
+    "status": "reference only, not in the verdict (spec section 3)",
+    "US_periods": "(a) 1997-2024: exact-date releases (as S1, no Y-9C condition), period = close t0(r) .. close t0(r_next), complete periods only; (b) 1990-2024: all releases from fred_date 1990-04-01 with exact date else approx_release_regular_practice (spec: approximate dates included); (c) 2015-2024: the (a) periods with release year 2015-2024",
+    "US_excess": "period excess return = prod(1 + vwretd) - prod(1 + rf_daily) over trading days in (t0, t0_next], rf = ff_all.fivefactors_daily rf, in %",
+    "US_regression": "excess_p on DRTSCILM(r_p) level (%), OLS slope, Newey-West 1-lag t (spec)",
+    "OOS_R2": "expanding window: forecast for period p from OLS on all earlier completed periods of the same definition (their returns are known at the start of p); benchmark = mean of the same earlier returns; first forecast after 20 training periods for (a) and (b); (c) evaluates 2015-2024 periods with training on all earlier (a) periods from 1997. R2_OS = 1 - SSE(model)/SSE(mean) (Campbell-Thompson 2008 definition). The CT-restricted version (forecast set to the historical mean when the slope is positive, i.e. not the expected negative sign, and truncated at 0 when negative) is also reported, both readings of 'Campbell-Thompson' declared now",
+    "timing": "in equity (CRSP VW) over period p iff DRTSCILM(r_p) <= median of all DRTSCILM observations from 1990-04-01 through r_p's survey (expanding, inclusive), else T-bill (daily rf). Daily strategy and buy-and-hold excess returns over the evaluated periods; Sharpe = mean / sd of daily excess x sqrt(252); annualised mean excess = 252 x mean. Evaluated over (a), (b), (c) periods",
+    "EU": "EZ (2003-2024, BLS release dates, level wfnet) and UK (2007-2024, CCS dates, level neg_availability): periods between consecutive release dates on the regional calendar (close of first regional trading day after r .. same after r_next); value-weighted return of members at r with weights = prccd x cshoc at the last record within 10 calendar days <= formation date, converted to EUR (EZ) / GBP (UK) with g_exrt_dly; buy-and-hold within the period; RF = 0 (stated, spec); same regression (NW 1), OOS R2 (min 20 training periods) and timing (in market iff level <= expanding median of all earlier-and-current levels in the table, else cash at 0%). EZ primary = euro-area-country universe, EZ_broad = repo universe (second reading, declared now)"
+  },
+
+  "inference_common": {
+    "bonferroni": "2 primary tests (S1, S2 US): |t| >= 2.24 (two-sided 5%/2, normal 2.2414) as written in the spec; exact df-based critical values printed for reference",
+    "nominal": "|t| >= 1.96",
+    "no_bootstrap": "no random numbers are used"
+  },
+
+  "outputs": {
+    "results": "out/results.csv (test_id, sample, stat, value)",
+    "s1_bank_table": "out/s1_bank_table.parquet: per release x bank: release_date, t0, exit, permno, permco, rssd9001, y9c_date, shares (raw, 5) and renormalised (5), BT, quintile, holding return, mcap, prc, controls",
+    "s1_N": "out/s1_N_by_release.csv: N(k, r) for the five categories and series counts",
+    "s1_ls": "out/s1_ls_periods.csv: per period gross L/S EW / VW / no-filter, leg returns, counts, costs, net",
+    "s1_monthly": "out/s1_ls_monthly.csv",
+    "s2_events": "out/s2_events.csv: per event AR_0, AR_1, CAR (EW, VW), market, s, u, n banks",
+    "s2_aux": "out/s2_events_EZ.csv, out/s2_events_EZ_broad.csv, out/s2_events_UK.csv",
+    "s3": "out/s3_periods_{US_a,US_b,EZ,EZ_broad,UK}.csv"
+  },
+
+  "deviations": [
+    {
+      "id": "NOTE-1 (output removal, no parameter changed)",
+      "when": "after the first S2 run (logs/p4_30_s2.log first version), before S3 was run",
+      "what": "the first S2 run also printed half-sample splits for the EZ / UK auxiliary regressions at ad-hoc mid-year cut points (EZ 2003-2013 / 2014-2024, UK 2007-2015 / 2016-2024). The spec asks only for 'the same regression' for the auxiliary regions and fixes no split years for them, so the splits were removed from the script and from results.csv",
+      "before": "EZ: -0.189 (t -0.90, n 43) / +0.005 (t +0.01, n 44); EZ_broad: -0.212 (t -1.08) / -0.113 (t -0.29); UK: +0.063 (t +0.16, n 33) / +0.162 (t +3.09, n 36) [%/10pp, White t]",
+      "after": "not reported; the full-sample auxiliary numbers are identical in both runs (EZ -0.170 t -0.91, EZ_broad -0.211 t -1.22, UK +0.124 t +0.79). None of these enter the verdict",
+      "also": "the same edit removed an unused placeholder column; no S1, S2-US or S3 number changed. p4_40_s3.py crashed on its first run (index past the calendar end for 2025+ releases) before producing any output; the fix only bounds the index"
+    }
+  ]
+}

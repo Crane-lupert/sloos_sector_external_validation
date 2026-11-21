@@ -1,117 +1,73 @@
-# sloos_sector_external_validation (S3)
+# sloos_sector_external_validation
 
-🚀 **LAUNCHING — Path B** (fork from S1 `sloos_sector_cross_section` close commit `4ce5c49`, 2026-05-06)
+**Loan-Officer Surveys and the Cross-Section of Bank Stock Returns: Evidence from Commercial Real Estate Lending Standards, 1991–2024** — working paper, v3 (November 2026).
 
-> **SSRN preprint**: abstract_id **6729904** — <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6729904> (Ahn, Hyun; posted 2026-05-07). *"Cross-Country External Validation of Bank Lending Shock × Sector Equity Heterogeneity: Eurozone Replicates US, UK Universe-Power Caveat"*, working paper, 2026. Manuscript in this repository: [analysis/paper_v2_en.pdf](analysis/paper_v2_en.pdf).
+Manuscript: [analysis/paper_v3_en.md](analysis/paper_v3_en.md) · Korean summary: [analysis/README_KR.md](analysis/README_KR.md)
 
-> Cross-country external validation — UK (BoE Credit Conditions Survey) + Eurozone (ECB Bank Lending Survey) replication of S1's SLOOS sectoral decomposition. Tier 1 candidate (J Mon Econ / RFS direct submission realistic if 3 of 3 cross-country Spearman pairs ≥ 0.5).
+> **Status.** v3 replaces the May 2026 manuscript posted as SSRN 6729904 ("Cross-Country External Validation of Bank Lending Shock × Sector Equity Heterogeneity"). The sector-level results of that version do not survive corrected event dates, point-in-time universes and event-level inference (paper, Appendix C). The SSRN entry is being revised to v3; until that revision is posted, the PDF on SSRN is the earlier version, which is kept here under [analysis/archive_v2/](analysis/archive_v2/).
 
-## What this repo does
+## Question
 
-This repo extends S1 ([Crane-lupert/sloos_sector_cross_section](https://github.com/Crane-lupert/sloos_sector_cross_section), LAYER A LOCKED — event-study class 2026-05-05) by replicating the SLOOS-equivalent shock × cross-section equity sector framework on:
+The Federal Reserve's Senior Loan Officer Opinion Survey (SLOOS) reports, by loan category, the net share of banks tightening lending standards. When the survey says standards are tightening in one category, do the stocks of banks that hold a lot of that category subsequently do worse than the stocks of banks that hold little of it? Both inputs are public: the survey readings, and each bank holding company's loan mix (FR Y-9C).
 
-- **United Kingdom**: Bank of England Credit Conditions Survey (CCS) C&I tightening, 2007-Q1+ (~76 quarters, ~14-18 events expected) × **STOXX 600 GBR-filter** (116 currently-active firms — FTSE 350 vendor unavailable in Compustat Global, Bonferroni power 1.4× loss caveat documented in §limitations)
-- **Eurozone**: ECB Bank Lending Survey (BLS) C&I tightening, 2003-Q1+ (~88 quarters, ~17-20 events expected) × **STOXX 600 full** (~421+ active firms, eurozone country list)
-- **US reference**: S1 v3 honest panel (frozen at S1 commit `4ce5c49`, 15/33 cells significant)
+## Results
 
-The **cross-country external validation** is the primary novelty over:
-- **Wilson 2023 FRL** ("Profitable timing of the stock market with the senior loan officer survey") — first aggregate SLOOS-equity timing finding (S&P 500 only), no sector decomposition, US-only
-- **Hafemann-Tillmann 2021 SSRN 4000366** ("Lending Standards and the Business Cycle: Evidence from Loan Survey Releases") — first SLOOS release-day shock identification via Bayesian VAR, US macro VAR aggregate, no equity sector cross-section
-- **Bidder-Krane-Park 2026.02 FEDS Note** ("Measuring Shocks to Banks' Expectations for Lending Standards Using SLOOS") — first AR-residual expectation methodology, US macro VAR aggregate, no sector decomposition
-- **S1 sloos_sector_cross_section** (2026-05-05 close) — first US SLOOS sectoral decomposition under Bonferroni framework, single-country
+| Test | Sample | Estimate | *t* |
+|---|---|---:|---:|
+| Exposure sort specified before returns were computed: lowest minus highest quintile of exposure to tightening, equal-weighted, held between survey releases | 2000–2024, 95 releases, about 230 listed bank holding companies | +1.19% per quarter | 2.42 |
+| Same statistic, pooled | 1991–2024, 133 releases | +1.00% per quarter | 2.56 |
+| Low-CRE minus high-CRE bank return spread on the net CRE tightening just released (where the pattern was found) | 2000–2024 | +0.95 pp per 10 pp | 3.90 |
+| Same test on a non-overlapping earlier sample, specified before those data were assembled | 1991–2000, 38 releases | +0.85 pp per 10 pp | 2.22 |
+| Same test, pooled | 1991–2024 | +0.93 pp per 10 pp | 4.02 |
 
-S3 contributes the **first cross-country external validation** of the SLOOS-sector phenomenon — does the sectoral pattern hold in UK and Eurozone, or is it a US-specific artifact?
+A static sort on CRE share is not significant (0.49% per quarter, *t* = 0.76): the information is in the survey's variation over time.
 
-## Status
+## What is not claimed
 
-🚀 **LAUNCHING** (Phase 0 Day 1 critical: BoE CCS + ECB BLS series start year verification — if ≥2015 per country, ABANDONED).
+- **Not a profitable strategy.** The spread is 0.19% per quarter (*t* = 0.24) in value-weighted portfolios and 0.61% (*t* = 1.24) after quoted spreads and an assumed 1% borrowing fee.
+- **Concentrated in CRE downturns.** Excluding 1991–92 and 2008–09 the pooled slope is 0.51 (*t* = 2.36).
+- **Mechanism not established.** A test of whether credit losses of exposed banks rise over the next four quarters has the expected sign but does not reach significance (*t* = 1.49).
+- **Pre-specification is documented by the author's files**, not by a public registry (paper, Section 3.5). Twenty-five of the 38 pre-sample releases use approximate release dates.
+- Two further tests specified in advance — a release-day reaction of bank stocks and aggregate market timing — do not pass (paper, Appendix B).
 
-Reference validation: `D:/vscode/meta-harness/audits/2026-05-06-S3-international-validation-reference-validation.md`.
+## Repository layout
 
-## Hypothesis
-
-BoE CCS / ECB BLS C&I-equivalent AR(1) residual shock event (`|z_innov| > 1.0σ`) → forward {1m, 3m, 6m} 11-GICS sector cross-section CAR cyclical heterogeneity (S1 와 same direction).
-
-**Cross-country PRIMARY (S3 extension)**:
-- (N-S3-A) UK ↔ US (S1) 6m sector Spearman ≥ 0.5
-- (N-S3-B) Eurozone ↔ US (S1) 6m sector Spearman ≥ 0.5
-- (N-S3-C) UK ↔ Eurozone 6m sector Spearman ≥ 0.5
-
-## Outcome class (Bayesian prior)
-
-| Outcome | Probability |
-|---|---:|
-| **A+ external validation (portfolio 3rd LAYER A LOCKED, J Mon Econ candidate)** | **~20%** |
-| A 2-of-3 country (B+ Layer A LOCKED — international class) | ~25% |
-| B+ partial | ~25% |
-| frozen-two-layer (Path B sub-mode) | ~20% |
-| ABANDONED (data integrity / floor 미달) | ~10% |
-
-## Methodology
-
-90% framework lifted from S1: cell-level Welch t + Bonferroni-K=33 critical t≈3.17 + F-test sector heterogeneity + alternative event def Spearman + Bootstrap CI + 6-component baseline (FF5+Mom+IVOL+SRF+E-CSI US-anchored + 6th AR-residual UK CCS / Eurozone BLS shocks).
-
-**Per-country PASS floors**:
-- UK: ≥4 cells (Bonferroni power 1.4× loss adjusted, S1 floor 5 ÷ 1.4)
-- Eurozone: ≥5 cells (full power, S1 floor 동일)
-- US: S1 reference 15/33 (frozen)
-
-5 new modules contribute the cross-country validation: `boe_ccs_fetch.py` / `ecb_bls_fetch.py` / `stoxx600_universe.py` / `comp_global_panel.py` / `cross_country_validation.py`.
-
-## Data
-
-- **BoE statistical interactive database** (CCS C&I net % tightening, public download)
-- **ECB SDW** (BLS C&I net % tightening, public download)
-- **WRDS courier** (`comp_global_daily` Tier A small + B medium 7 tables dumped 2026-05-05 + g_secd filtered fastlane STOXX 600 universe × 2003-2024 dumped 2026-05-06, 251 MB compressed)
-- **Ken French data library** (FF5 + Mom US, US-anchored baseline, paper limitation)
-- **S1 v3 reference panel** (`crsp_sector_panel_DRTSCILM_AR1_TIMEVAR_v2_2026-05-05.parquet`, frozen at S1 commit `4ce5c49`)
-
-Sample: UK ~14-18 events / Eurozone ~17-20 events (Phase 0 Day 1 verification mandatory).
-
-## Known caveats
-
-- **FTSE 350 vendor unavailable** in Compustat Global (idxcstflg=N for FTSE 100/250/350/AllShare, 0 reconstitution rows). UK substitute = STOXX 600 GBR-filter (33% of FTSE 350 size, large/mid-cap only). Bonferroni power 1.4× loss documented as §limitation.
-- **6-component baseline US-anchored** (Ken French US factors, BKP US E-CSI, Ferreira US SRF). Per-country factor library 부재 — paper §limitation 명시. Future revision robustness check via Datastream subscription path 가능 (현재 학교 subscription unblock 거부).
-- **Survivor bias**: STOXX 600 universe 의 time-varying from/thru 검증 의무 (Phase 0 Day 2). filtered g_secd dump 가 universe-restricted 라 *currently-active firms 만* 포함 가능성 잔존.
-
-## Korean distill
-
-See `analysis/README_KR.md` (한국어 distill, close 시점에 finalize).
+| Path | Content |
+|---|---|
+| `analysis/paper_v3_en.md`, `analysis/refs_v3.bib`, `analysis/figures_v3/` | Manuscript (pandoc Markdown), references, figures |
+| `analysis/v3/` | `make_tables.py`, `make_figures.py`, and the period-level series behind every table and figure (`tables/`) |
+| `scripts/v3/` | Reference implementation: `phase4/` (2000–2024), `phase4b/` (1991–2000 and the 2025 record), `checks/` (independent recomputations). See [scripts/v3/README.md](scripts/v3/README.md) |
+| `docs/v3/` | Specification documents written before the corresponding results (in Korean), frozen implementation choices, execution logs |
+| `data/v3_inputs/` | Release dates of the three surveys with source URLs |
+| `analysis/archive_v2/`, `src/`, `tests/`, `dashboard/`, `LAYER_A_LOCKED.md` | The earlier (May 2026) analysis, kept as a record |
 
 ## Reproduction
 
-Code, data, and figures are committed alongside the paper draft (`analysis/paper_v2_en.md`) so reviewers can reproduce the analysis end-to-end.
-
 ```bash
-# Install dependencies
 uv sync
-
-# Regenerate figures from cached parquet/json
-uv run python analysis/generate_figures.py
-
-# Run the local interactive dashboard (NOT publicly hosted)
-uv run streamlit run dashboard/app.py
+export SLOOS_V3_WORK=/path/to/workdir        # intermediate tables
+export WRDS_DUMP_DIR=/path/to/wrds/extracts  # licensed data, not in this repository
+# pipeline order: scripts/v3/README.md
+python analysis/v3/make_tables.py
+python analysis/v3/make_figures.py
+cd analysis
+pandoc paper_v3_en.md --citeproc --standalone --mathml --number-sections -c v3/print.css -o paper_v3_en.html
+# print paper_v3_en.html to PDF with a browser (the committed PDF was made with headless Chrome),
+# or, with a LaTeX engine: pandoc paper_v3_en.md --citeproc --number-sections -o paper_v3_en.pdf
 ```
 
-The dashboard is local-only — there is no public Streamlit Cloud deployment, both to avoid free-tier inactivity sleep and to eliminate link-rot risk for the published paper. All figures, tables, and numerical claims in the paper can be regenerated from the cached parquet/json files in `data/cache/` without touching the dashboard.
+## Data and licences
 
-## License
+Public: FRED (survey series), Federal Reserve Board survey pages (release dates), Federal Reserve Bank of Chicago holding-company files (FR Y-9C, 1990–2000), Kenneth French's data library. Licensed and not redistributed: CRSP, WRDS Bank Regulatory, Compustat Global.
 
-Source code in this repository is released under the [MIT License](LICENSE).
+Source code is released under the [MIT License](LICENSE). The working-paper text and figures are (c) 2026 Hyun Ahn, all rights reserved. See [NOTICE](NOTICE).
 
-The working-paper text and its figures are **not** covered by that licence: they
-remain (c) 2026 Hyun Ahn, all rights reserved. Third-party data are governed by
-their original providers' terms and are not redistributed here. See
-[NOTICE](NOTICE) for the full scope statement.
+## Main references
 
-## Acknowledgments
+- Chava, S., M. Gallmeyer and H. Park (2015). Credit conditions and stock return predictability. *Journal of Monetary Economics* 74, 117–132.
+- Wilson, L. (2023). Profitable timing of the stock market with the senior loan officer survey. *Finance Research Letters* 54, 103733.
+- Kovner, A. and P. Van Tassel (2022). Evaluating regulatory reform: banks' cost of capital and lending. *Journal of Money, Credit and Banking* 54(5), 1313–1367.
+- Bassett, W. F., M. B. Chosak, J. C. Driscoll and E. Zakrajšek (2014). Changes in bank lending standards and the macroeconomy. *Journal of Monetary Economics* 62, 23–40.
+- Fahlenbrach, R., R. Prilmeier and R. M. Stulz (2018). Why does fast loan growth predict poor performance for banks? *Review of Financial Studies* 31(3), 1014–1063.
 
-This research builds on:
-- Wilson, Linus (2023). *Finance Research Letters* 54: 103755.
-- Hafemann, Lucas and Peter Tillmann (2021). Marburg WP 2021-31 / SSRN 4000366.
-- Bidder, Rhys, David Krane, and Joonkyu Park (2026.02). *Federal Reserve FEDS Notes*.
-- Bassett, William F., Mary Beth Chosak, John C. Driscoll, and Egon Zakrajšek (2014). *J Monetary Economics* 62.
-- Ferreira, Thiago R. T. (2024). *J Monetary Economics* 147(C).
-- Lucca, David O. and Emanuel Moench (2015). *J Finance* 70(1).
-- Savor, Pavel and Mungo Wilson (2014). *RFS* 113(2).
-- S1 sloos_sector_cross_section (Crane-lupert, 2026-05-05, MIT) — direct US-side foundation.
+The full list is in `analysis/refs_v3.bib`.

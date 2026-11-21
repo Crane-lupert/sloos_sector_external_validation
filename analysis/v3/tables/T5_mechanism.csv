@@ -1,0 +1,5 @@
+outcome,spec,obs,releases,banks,b,t,mean_y
+"net charge-offs, next 4 quarters / loans (%)",release FE + loan shares,20361,93,580,0.0476623174217233,1.488238126267816,0.42314520428470936
+"net charge-offs, next 4 quarters / loans (%)",release FE + bank FE + loan shares,20361,93,580,0.059125824947772895,1.9990700053067851,0.42314520428470936
+"loan-loss provisions, next 4 quarters / loans (%)",release FE + loan shares,20361,93,580,0.07014598575175574,1.7654464117299482,0.5366096642564084
+"loan-loss provisions, next 4 quarters / loans (%)",release FE + bank FE + loan shares,20361,93,580,0.08091343111868997,2.158096331721541,0.5366096642564084

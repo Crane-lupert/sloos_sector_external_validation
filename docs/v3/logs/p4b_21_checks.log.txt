@@ -1,0 +1,9 @@
+[1] periods 38 | max |LS_BT diff| 8.881784197001252e-16 | max |LS_CRE diff| 2.220446049250313e-16 | identical quintiles BT / CRE in all periods: True True
+[2] H1 mean +0.5280: t by hand +0.8987 (no df scaling) / +0.8868 (n/(n-k)); statsmodels +0.8987
+[2] H2 slope +0.8514: t by hand +2.2244 (no df scaling) / +2.1651 (n/(n-k)); statsmodels +2.2244; plain OLS t +2.0754
+[3] 40 random main-universe bank-periods: max |R(recompounded) - R(table)| = 1.11e-15; delisted among them: 0; delisted positions in the main universe overall: 193
+[3b] all 193 delisted main-universe positions: max |R(recompounded incl. delisting return) - R(table)| = 2.44e-15; missing dlret substituted 0; delisting code families {200: 192, 500: 1}
+[4] entry strictly after release in all 38 periods: True; approximate releases (25): trading-day position of the entry after the approximate date = [10]; report date <= q*: True; q* + 75d <= release: True; report age at release (days) min 131 max 152; banks on the fallback (older) report: 16 of 14899
+[4] link valid at the decision date for every bank-release: True
+[5] main-universe n per period min 154 max 298; BT legs Q1 30-59, Q5 31-60; CRE legs low 30-59, high 31-60; duplicate permnos 0
+[5] raw shares sum to 1 (CI+CRE+RRE+CONS): True; renormalised shares sum to 1: True; banks with a 1990Q3/Q4 report (no CC/OC split): 657 rows, all at releases before 1996: True

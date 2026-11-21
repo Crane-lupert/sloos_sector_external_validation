@@ -1,0 +1,86 @@
+[    0s] FROZEN_PARAMS frozen_at: 2026-11-21 (KST), Step 1 of phase 4B, BEFORE any 1990s or 2025 holding-period re ...
+[    3s] index rows 2596371 price rows 2594764 delisting records appended 1607
+[    3s] releases in window 40 (approximate dates 27); last exit 2000-08-28 == phase-4 first entry 2000-08-28
+[    5s] bank table rows 14899 periods with any bank 38
+ fred_date release_date  approx_date         t0       exit      qstar  n_link_rssd  n_common  n_common_screen  n_y9c  n_signal_entry  n_main  n_main_q1_bt  n_main_q5_bt  n_delisted_in_period  n_main_assets_lt_150m        avail
+1990-07-01   1990-08-24         True 1990-09-10 1990-12-03 1990-03-31          688       386              159      0               0       0             0             0                     0                      0       CI,CRE
+1990-10-01   1990-11-17         True 1990-12-03 1991-02-25 1990-06-30          687       385              150      0               0       0             0             0                     0                      0       CI,CRE
+1991-01-01   1991-02-08         True 1991-02-25 1991-06-05 1990-09-30          689       389              164    327             327     154            30            31                     2                      0       CI,CRE
+1991-04-01   1991-05-21         True 1991-06-05 1991-09-09 1990-12-31          689       390              165    330             330     157            31            32                     1                      0       CI,CRE
+1991-07-01   1991-08-24         True 1991-09-09 1991-12-02 1991-03-31          690       399              175    336             336     167            33            34                     1                      0       CI,CRE
+1991-10-01   1991-11-17         True 1991-12-02 1992-02-24 1991-06-30          689       400              172    338             338     164            32            33                     3                      0       CI,CRE
+1992-01-01   1992-02-08         True 1992-02-24 1992-06-05 1991-09-30          687       399              185    339             339     177            35            36                     4                      0       CI,CRE
+1992-04-01   1992-05-21         True 1992-06-05 1992-09-08 1991-12-31          688       406              188    343             343     178            35            36                     1                      0       CI,CRE
+1992-07-01   1992-08-24         True 1992-09-08 1992-12-02 1992-03-31          690       412              192    347             347     183            36            37                     4                      0       CI,CRE
+1992-10-01   1992-11-17         True 1992-12-02 1993-02-23 1992-06-30          686       413              196    349             349     184            36            37                     3                      0       CI,CRE
+1993-01-01   1993-02-08         True 1993-02-23 1993-06-07 1992-09-30          685       417              204    357             357     192            38            39                     6                      0       CI,CRE
+1993-04-01   1993-05-21         True 1993-06-07 1993-09-08 1992-12-31          689       435              204    369             369     191            38            39                     1                      0       CI,CRE
+1993-07-01   1993-08-24         True 1993-09-08 1993-12-02 1993-03-31          692       447              217    377             377     203            40            41                     3                      0       CI,CRE
+1993-10-01   1993-11-17         True 1993-12-02 1994-02-23 1993-06-30          695       464              222    387             387     207            41            42                     5                      0       CI,CRE
+1994-01-01   1994-02-08         True 1994-02-23 1994-06-06 1993-09-30          696       473              223    390             390     207            41            42                    14                      0       CI,CRE
+1994-04-01   1994-05-21         True 1994-06-06 1994-09-08 1993-12-31          687       475              220    396             396     205            41            41                    10                      0       CI,CRE
+1994-07-01   1994-08-24         True 1994-09-08 1994-12-02 1994-03-31          679       472              224    393             393     211            42            43                     8                      0       CI,CRE
+1994-10-01   1994-11-17         True 1994-12-02 1995-02-23 1994-06-30          678       473              219    393             393     206            41            42                     8                      0       CI,CRE
+1995-01-01   1995-02-08         True 1995-02-23 1995-06-05 1994-09-30          673       470              221    386             386     207            41            42                    10                      0       CI,CRE
+1995-04-01   1995-05-21         True 1995-06-05 1995-09-08 1994-12-31          671       475              220    386             386     204            40            41                     6                      0       CI,CRE
+1995-07-01   1995-08-24         True 1995-09-08 1995-12-04 1995-03-31          666       479              230    388             388     213            42            43                     3                      0       CI,CRE
+1995-10-01   1995-11-17         True 1995-12-04 1996-02-23 1995-06-30          668       485              241    394             394     222            44            45                    13                      0       CI,CRE
+1996-01-01   1996-02-08         True 1996-02-23 1996-06-05 1995-09-30          655       480              242    388             388     223            44            45                    15                      0 CI,CRE,CC,OC
+1996-04-01   1996-05-21         True 1996-06-05 1996-09-09 1995-12-31          646       480              238    390             390     222            44            45                     6                      0 CI,CRE,CC,OC
+1996-07-01   1996-08-24         True 1996-09-09 1996-12-02 1996-03-31          648       492              246    404             404     227            45            46                     5                      0 CI,CRE,CC,OC
+1996-10-01   1996-11-17         True 1996-12-02 1997-02-11 1996-06-30          647       498              260    411             411     241            48            49                    11                      0 CI,CRE,CC,OC
+1997-01-01   1997-02-10        False 1997-02-11 1997-05-27 1996-09-30          643       498              264    408             408     245            49            49                    13                      0 CI,CRE,CC,OC
+1997-04-01   1997-05-23        False 1997-05-27 1997-08-25 1996-12-31          634       495              270    404             404     251            50            51                    13                      0 CI,CRE,CC,OC
+1997-07-01   1997-08-22        False 1997-08-25 1997-11-18 1997-03-31          621       491              280    403             403     261            52            53                    10                      0 CI,CRE,CC,OC
+1997-10-01   1997-11-17        False 1997-11-18 1998-02-10 1997-06-30          617       495              294    407             407     275            55            55                     7                      0 CI,CRE,CC,OC
+1998-01-01   1998-02-09        False 1998-02-10 1998-05-27 1997-09-30          614       501              309    417             417     290            58            58                    19                      0 CI,CRE,CC,OC
+1998-04-01   1998-05-26        False 1998-05-27 1998-08-24 1997-12-31          603       507              321    424             424     298            59            60                    15                      0 CI,CRE,CC,OC
+1998-07-01   1998-08-21        False 1998-08-24 1998-11-25 1998-03-31          590       506              293    425             425     274            54            55                     9                      0 CI,CRE,CC,OC
+1998-10-01   1998-11-24        False 1998-11-25 1999-02-09 1998-06-30          587       508              289    430             430     270            54            54                    11                      0 CI,CRE,CC,OC
+1999-01-01   1999-02-08        False 1999-02-09 1999-06-07 1998-09-30          585       515              286    439             439     265            53            53                     9                      0 CI,CRE,CC,OC
+1999-04-01   1999-05-21         True 1999-06-07 1999-08-31 1998-12-31          583       514              278    443             443     260            52            52                    11                      0 CI,CRE,CC,OC
+1999-07-01   1999-08-30        False 1999-08-31 1999-11-23 1999-03-31          575       510              275    447             447     260            52            52                    13                      0 CI,CRE,CC,OC
+1999-10-01   1999-11-22        False 1999-11-23 2000-02-09 1999-06-30          568       505              263    443             443     248            49            50                     9                      0 CI,CRE,CC,OC
+2000-01-01   2000-02-08        False 2000-02-09 2000-05-22 1999-09-30          563       504              243    445             445     230            46            46                    12                      0 CI,CRE,CC,OC
+2000-04-01   2000-05-19        False 2000-05-22 2000-08-28 1999-12-31          558       501              227    446             446     217            43            44                    11                      0 CI,CRE,CC,OC
+[    5s] periods formed (main, n >= 25): 38 | not formed: ['1990-07-01', '1990-10-01'] | approximate-dated among formed: 25
+[    5s] H1_main_EW [full]: n=38 mean LS=+0.528% t=+0.90 | 부합 (consistent, not significant)
+[    5s] H1_main_EW [1990-1992]: n=8 mean LS=+0.115% t=+0.07 | reported only
+[    5s] H1_main_EW [1993-2000Q2]: n=30 mean LS=+0.638% t=+1.09 | reported only
+[    5s] H1_main_EW [1993-1999 strict]: n=28 mean LS=+0.794% t=+1.30 | reported only
+[    5s] H1_main_EW [exact-dated only (EXPLORATORY)]: n=13 mean LS=+0.932% t=+1.20 | reported only
+[    5s] H2_main_slope [full]: n=38 slope=+0.851%/10pp t=+2.22 | intercept -0.851 (t -1.61) | mean LS_CRE -0.331 (t -0.67) | N_CRE mean 6.1 sd 13.2 | 확인 (confirmed)
+[    5s] H2_main_slope [1990-1992]: n=8 slope=+2.603%/10pp t=+6.67 | intercept -4.810 (t -3.79) | mean LS_CRE -0.292 (t -0.23) | N_CRE mean 17.4 sd 14.6 | reported only
+[    5s] H2_main_slope [1993-2000Q2]: n=30 slope=+0.423%/10pp t=+1.28 | intercept -0.472 (t -0.88) | mean LS_CRE -0.341 (t -0.66) | N_CRE mean 3.1 sd 11.2 | reported only
+[    5s] H2_main_slope [1993-1999 strict]: n=28 slope=+0.324%/10pp t=+1.11 | intercept -0.677 (t -1.30) | mean LS_CRE -0.606 (t -1.23) | N_CRE mean 2.2 sd 10.9 | reported only
+[    5s] H2_main_slope [exact-dated only (EXPLORATORY)]: n=13 slope=+0.267%/10pp t=+0.74 | intercept -0.065 (t -0.07) | mean LS_CRE +0.079 (t +0.10) | N_CRE mean 5.4 sd 16.0 | reported only
+[    5s] H2_main_panel [full]: obs 8389, releases 38 | I_CRE coef -2.224 (t -2.12) | share_CRE +1.366 (t +0.94) | share_CI +1.771 (t +1.54) | 확인 (confirmed)
+[    5s] H2_main_panel [1990-1992]: obs 1364, releases 8 | I_CRE coef -9.372 (t -6.13) | share_CRE -2.767 (t -0.91) | share_CI -2.170 (t -0.86) | reported only
+[    5s] H2_main_panel [1993-2000Q2]: obs 7025, releases 30 | I_CRE coef -1.534 (t -1.64) | share_CRE +2.018 (t +1.28) | share_CI +2.329 (t +1.84) | reported only
+[    5s] H2_main_panel [1993-1999 strict]: obs 6578, releases 28 | I_CRE coef -1.737 (t -2.04) | share_CRE +2.243 (t +1.43) | share_CI +1.837 (t +1.42) | reported only
+[    5s] H2_main_panel [exact-dated only (EXPLORATORY)]: obs 3384, releases 13 | I_CRE coef -1.407 (t -1.34) | share_CRE +1.486 (t +0.64) | share_CI +3.627 (t +1.76) | reported only
+[    5s] H1_nofilter_EW [full]: n=38 mean LS=-0.078% t=-0.11 | reported only
+[    6s] H1_nofilter_EW [1990-1992]: n=8 mean LS=-0.269% t=-0.11 | reported only
+[    6s] H1_nofilter_EW [1993-2000Q2]: n=30 mean LS=-0.026% t=-0.04 | reported only
+[    6s] H1_nofilter_EW [1993-1999 strict]: n=28 mean LS=-0.010% t=-0.01 | reported only
+[    6s] H1_nofilter_EW [exact-dated only (EXPLORATORY)]: n=13 mean LS=+0.150% t=+0.22 | reported only
+[    6s] H2_nofilter_slope [full]: n=38 slope=+1.199%/10pp t=+1.97 | intercept -0.063 (t -0.12) | mean LS_CRE +0.669 (t +0.96) | N_CRE mean 6.1 sd 13.2 | reported only
+[    6s] H2_nofilter_slope [1990-1992]: n=8 slope=+1.765%/10pp t=+1.67 | intercept +1.299 (t +0.50) | mean LS_CRE +4.364 (t +2.55) | N_CRE mean 17.4 sd 14.6 | reported only
+[    6s] H2_nofilter_slope [1993-2000Q2]: n=30 slope=+0.236%/10pp t=+0.56 | intercept -0.389 (t -0.77) | mean LS_CRE -0.316 (t -0.67) | N_CRE mean 3.1 sd 11.2 | reported only
+[    6s] H2_nofilter_slope [1993-1999 strict]: n=28 slope=+0.032%/10pp t=+0.10 | intercept -0.599 (t -1.20) | mean LS_CRE -0.592 (t -1.29) | N_CRE mean 2.2 sd 10.9 | reported only
+[    6s] H2_nofilter_slope [exact-dated only (EXPLORATORY)]: n=13 slope=+0.124%/10pp t=+0.27 | intercept -0.050 (t -0.07) | mean LS_CRE +0.016 (t +0.02) | N_CRE mean 5.4 sd 16.0 | reported only
+[    6s] H2_nofilter_panel [full]: obs 14899, releases 38 | I_CRE coef -2.275 (t -1.45) | share_CRE -1.470 (t -0.99) | share_CI -1.051 (t -0.80) | reported only
+[    6s] H2_nofilter_panel [1990-1992]: obs 2709, releases 8 | I_CRE coef -5.697 (t -1.37) | share_CRE -16.141 (t -2.89) | share_CI -7.672 (t -1.63) | reported only
+[    6s] H2_nofilter_panel [1993-2000Q2]: obs 12190, releases 30 | I_CRE coef -0.297 (t -0.35) | share_CRE +0.727 (t +0.62) | share_CI +0.168 (t +0.14) | reported only
+[    6s] H2_nofilter_panel [1993-1999 strict]: obs 11299, releases 28 | I_CRE coef +0.089 (t +0.14) | share_CRE +1.314 (t +1.17) | share_CI -0.491 (t -0.41) | reported only
+[    6s] H2_nofilter_panel [exact-dated only (EXPLORATORY)]: obs 5538, releases 13 | I_CRE coef -0.301 (t -0.33) | share_CRE +0.786 (t +0.48) | share_CI +2.508 (t +1.70) | reported only
+[    6s] H1_main_long_leg: mean +5.938% (t +4.23)
+[    6s] H1_main_short_leg: mean +5.410% (t +4.35)
+[    6s] H2_main_lowCRE_leg: mean +5.700% (t +4.48)
+[    6s] H2_main_highCRE_leg: mean +6.030% (t +4.60)
+[    6s] leg BT_Q1_long: mean raw shares {'share_CI': 0.373, 'share_CRE': 0.2, 'share_RRE': 0.251, 'share_CONS': 0.176} | mean BT 1.15
+[    6s] leg BT_Q5_short: mean raw shares {'share_CI': 0.149, 'share_CRE': 0.288, 'share_RRE': 0.373, 'share_CONS': 0.19} | mean BT 7.47
+[    6s] leg CRE_Q1_low: mean raw shares {'share_CI': 0.323, 'share_CRE': 0.108, 'share_RRE': 0.341, 'share_CONS': 0.228} | mean BT 3.72
+[    6s] leg CRE_Q5_high: mean raw shares {'share_CI': 0.205, 'share_CRE': 0.416, 'share_RRE': 0.266, 'share_CONS': 0.113} | mean BT 4.62
+[    6s] Spearman(BT, CRE share) inside releases: mean 0.299, min -0.726, max 0.809
+[    6s] done
