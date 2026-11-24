@@ -1,6 +1,11 @@
 # sloos_sector_external_validation (S3)
 
-**Status**: 🚀 **LAUNCHING — Path B** (fork from S1 sloos_sector_cross_section close commit `4ce5c49`, 2026-05-06)
+**Status (2026-11-21)**: 📄 **v3 논문으로 대체됨.** 이 저장소의 현재 주장은 `analysis/paper_v3_en.md` 다 (은행지주회사 대출 구성 × SLOOS 범주별 순긴축 → 은행주 횡단면, 1991–2024). 아래 Mission·Hypothesis·§1–§9 는 2026년 5월 판 (세 지역 섹터 사건 연구, Path B) 의 기록이고 현재 목표가 아니다. 그 판의 결과는 정정 절차에서 유지되지 않았다 (세 지역 모두 0/33 — 논문 부록 C).
+**v3 작업 규칙**:
+1. 새 검정은 결과를 계산하기 전에 사양 문서를 `docs/v3/` 에 먼저 commit 한다 (기존 사양: `PHASE4_SPEC.md`, `PHASE4B_SPEC.md`, `PHASE4C_SPEC.md`).
+2. 논문의 표·그림 수치는 `analysis/v3/make_tables.py`·`make_figures.py` 의 출력에서만 옮긴다. 손으로 고치지 않는다.
+3. WRDS·CRSP 원자료와 그 파생 표는 commit 하지 않는다. 작업 폴더와 덤프 위치는 환경 변수 `SLOOS_V3_WORK`·`WRDS_DUMP_DIR` 로 준다 (`scripts/v3/README.md`).
+**이전 Status (2026-05-06)**: LAUNCHING — Path B (fork from S1 sloos_sector_cross_section close commit `4ce5c49`). 공개 push 금지 규칙 (§7) 은 v3 에도 그대로 적용된다. v3 반영 기록: `D:/vscode/meta-harness/audits/2026-11-21-sloos-v3-repo-apply.md`.
 **Pod**: Macro/Credit international extension (S1 = US realized lending shock / S3 = UK + Eurozone realized lending shock cross-country external validation)
 **Mission**: Cross-country external validation of S1's SLOOS sectoral decomposition. UK (BoE Credit Conditions Survey) + Eurozone (ECB Bank Lending Survey) × STOXX 600 universe → cross-country sector pattern Spearman ≥ 0.5 in 3 of 3 pairs (UK ↔ US ↔ Eurozone) → A+ external validation, portfolio 3rd LAYER A LOCKED, J Mon Econ / RFS direct submission realistic.
 **Reference**: `D:/vscode/meta-harness/audits/2026-05-06-S3-international-validation-reference-validation.md` (Change Manifest §0 + Lock 14 + 4-cat × 12 abandon trigger + Phase 0/1/2 plan)
