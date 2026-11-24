@@ -15,7 +15,7 @@
 
 `PROTOCOL.md` §1 과 `PHASE3_PROTOCOL.md` §1 을 그대로 적용한다. 다시 적는다.
 
-1. 쓰기는 해당 작업 폴더의 `phase4/` 아래에만. 1–3차 산출물과 `phase4/common/` 은 읽기만 한다. 앞 단계 스크립트를 고쳐 써야 하면 `phase4/scripts/` 로 복사해서 고친다. 연구 저장소 (`D:/vscode/<repo>`) 와 `D:/vscode/career-workspace` 는 읽기 전용이다. `git commit`·push 금지.
+1. 쓰기는 해당 작업 폴더의 `phase4/` 아래에만. 1–3차 산출물과 `phase4/common/` 은 읽기만 한다. 앞 단계 스크립트를 고쳐 써야 하면 `phase4/scripts/` 로 복사해서 고친다. 연구 저장소 (`D:/vscode/<repo>`) 와 다른 로컬 작업 폴더 (공개본에서 이름 생략) 는 읽기 전용이다. `git commit`·push 금지.
 2. `.env`, `.pgpass`, 키·설정 파일 (`openrouter-config.yaml` 포함) 을 열지 않는다. `wrds.Connection` 등 WRDS 직접 접속 금지. WRDS 자료는 `E:/wrds-data-courier/output/dump/` 의 로컬 파일만 쓴다 (CCM 링크 테이블 없음 — CUSIP/ncusip 과 유효 기간으로 연결).
 3. **유료 LLM API 호출 금지** (4차는 예외 없음). 저장된 라벨만 쓴다.
 4. 외부 요청은 공개 자료만 (SEC EDGAR, FRED, ECB, BoE, Ken French 자료실). 요청 헤더는 개인 정보가 없는 일반 문자열 `research-reverify/1.0`, 초당 5회 이하. 403·429 가 나오면 멈추고 보고한다. 연락처를 넣어 우회하지 않는다. 요청에 사용자 이름·이메일·프로젝트 이름을 넣지 않는다.
